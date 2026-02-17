@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:beyou/core/extensions/exceptions.dart';
+import 'package:beyou/core/utils/exceptions.dart';
 import 'package:flutter/services.dart';
 
 class AuthService {

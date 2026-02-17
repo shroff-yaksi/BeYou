@@ -7,7 +7,7 @@ import 'package:beyou/screens/workout_details_screen/bloc/workoutdetails_bloc.da
 import 'package:beyou/screens/workout_details_screen/widget/workout_details_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:beyou/core/extensions/list_extension.dart';
+import 'package:beyou/core/utils/list_extension.dart';
 
 class WorkoutDetailsPage extends StatelessWidget {
   final WorkoutData workout;

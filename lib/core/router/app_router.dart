@@ -8,7 +8,7 @@ import 'package:beyou/screens/sign_up/page/sign_up_page.dart';
 import 'package:beyou/screens/forgot_password/page/forgot_password_page.dart';
 import 'package:beyou/screens/settings/settings_screen.dart';
 import 'package:beyou/screens/edit_account/edit_account_screen.dart';
-import 'package:beyou/screens/change_password/change_password_screen.dart';
+import 'package:beyou/screens/change_password/change_password_page.dart';
 import 'package:beyou/screens/reminder/page/reminder_page.dart';
 
 /// GoRouter configuration for app navigation
@@ -87,7 +87,7 @@ class AppRouter {
         name: 'changePassword',
         pageBuilder: (context, state) => MaterialPage(
           key: state.pageKey,
-          child: const ChangePasswordScreen(),
+          child: const ChangePasswordPage(),
         ),
       ),
 
