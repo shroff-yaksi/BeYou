@@ -1,8 +1,8 @@
-import 'package:fitness_flutter/core/const/color_constants.dart';
-import 'package:fitness_flutter/core/const/text_constants.dart';
-import 'package:fitness_flutter/screens/common_widgets/fitness_button.dart';
-import 'package:fitness_flutter/screens/reminder/bloc/reminder_bloc.dart';
-import 'package:fitness_flutter/screens/reminder/widget/reminder_content.dart';
+import 'package:beyou/core/const/color_constants.dart';
+import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/screens/common_widgets/fitness_button.dart';
+import 'package:beyou/screens/reminder/bloc/reminder_bloc.dart';
+import 'package:beyou/screens/reminder/widget/reminder_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

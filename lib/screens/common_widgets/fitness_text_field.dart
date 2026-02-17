@@ -1,5 +1,5 @@
-import 'package:fitness_flutter/core/const/color_constants.dart';
-import 'package:fitness_flutter/core/const/path_constants.dart';
+import 'package:beyou/core/const/color_constants.dart';
+import 'package:beyou/core/const/path_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

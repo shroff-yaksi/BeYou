@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:fitness_flutter/core/service/firebase_storage_service.dart';
-import 'package:fitness_flutter/core/service/user_service.dart';
+import 'package:beyou/core/service/firebase_storage_service.dart';
+import 'package:beyou/core/service/user_service.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 

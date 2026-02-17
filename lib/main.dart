@@ -1,6 +1,6 @@
-import 'package:fitness_flutter/core/const/color_constants.dart';
-import 'package:fitness_flutter/screens/onboarding/page/onboarding_page.dart';
-import 'package:fitness_flutter/screens/tab_bar/page/tab_bar_page.dart';
+import 'package:beyou/core/const/color_constants.dart';
+import 'package:beyou/screens/onboarding/page/onboarding_page.dart';
+import 'package:beyou/screens/tab_bar/page/tab_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

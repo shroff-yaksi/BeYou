@@ -1,6 +1,6 @@
-import 'package:fitness_flutter/data/exercise_data.dart';
-import 'package:fitness_flutter/screens/start_workout/bloc/start_workout_bloc.dart';
-import 'package:fitness_flutter/screens/start_workout/widget/start_workout_content.dart';
+import 'package:beyou/data/exercise_data.dart';
+import 'package:beyou/screens/start_workout/bloc/start_workout_bloc.dart';
+import 'package:beyou/screens/start_workout/widget/start_workout_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

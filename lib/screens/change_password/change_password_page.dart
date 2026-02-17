@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fitness_flutter/core/const/color_constants.dart';
-import 'package:fitness_flutter/core/const/text_constants.dart';
-import 'package:fitness_flutter/core/service/validation_service.dart';
-import 'package:fitness_flutter/screens/change_password/bloc/change_password_bloc.dart';
-import 'package:fitness_flutter/screens/common_widgets/fitness_button.dart';
-import 'package:fitness_flutter/screens/common_widgets/fitness_loading.dart';
-import 'package:fitness_flutter/screens/common_widgets/settings_container.dart';
-import 'package:fitness_flutter/screens/common_widgets/settings_textfield.dart';
+import 'package:beyou/core/const/color_constants.dart';
+import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/core/service/validation_service.dart';
+import 'package:beyou/screens/change_password/bloc/change_password_bloc.dart';
+import 'package:beyou/screens/common_widgets/fitness_button.dart';
+import 'package:beyou/screens/common_widgets/fitness_loading.dart';
+import 'package:beyou/screens/common_widgets/settings_container.dart';
+import 'package:beyou/screens/common_widgets/settings_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

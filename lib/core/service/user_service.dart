@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fitness_flutter/core/extensions/exceptions.dart';
-import 'package:fitness_flutter/core/service/auth_service.dart';
+import 'package:beyou/core/extensions/exceptions.dart';
+import 'package:beyou/core/service/auth_service.dart';
 
 class UserService {
   static final FirebaseAuth firebase = FirebaseAuth.instance;

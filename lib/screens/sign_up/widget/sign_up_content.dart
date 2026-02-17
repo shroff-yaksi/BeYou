@@ -1,10 +1,10 @@
-import 'package:fitness_flutter/core/const/color_constants.dart';
-import 'package:fitness_flutter/core/const/text_constants.dart';
-import 'package:fitness_flutter/core/service/validation_service.dart';
-import 'package:fitness_flutter/screens/common_widgets/fitness_button.dart';
-import 'package:fitness_flutter/screens/common_widgets/fitness_loading.dart';
-import 'package:fitness_flutter/screens/common_widgets/fitness_text_field.dart';
-import 'package:fitness_flutter/screens/sign_up/bloc/signup_bloc.dart';
+import 'package:beyou/core/const/color_constants.dart';
+import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/core/service/validation_service.dart';
+import 'package:beyou/screens/common_widgets/fitness_button.dart';
+import 'package:beyou/screens/common_widgets/fitness_loading.dart';
+import 'package:beyou/screens/common_widgets/fitness_text_field.dart';
+import 'package:beyou/screens/sign_up/bloc/signup_bloc.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

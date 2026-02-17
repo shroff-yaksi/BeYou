@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fitness_flutter/core/const/color_constants.dart';
-import 'package:fitness_flutter/core/const/data_constants.dart';
-import 'package:fitness_flutter/core/const/path_constants.dart';
-import 'package:fitness_flutter/core/const/text_constants.dart';
-import 'package:fitness_flutter/screens/edit_account/edit_account_screen.dart';
-import 'package:fitness_flutter/screens/home/bloc/home_bloc.dart';
-import 'package:fitness_flutter/screens/home/widget/home_statistics.dart';
-import 'package:fitness_flutter/screens/workout_details_screen/page/workout_details_page.dart';
+import 'package:beyou/core/const/color_constants.dart';
+import 'package:beyou/core/const/data_constants.dart';
+import 'package:beyou/core/const/path_constants.dart';
+import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/screens/edit_account/edit_account_screen.dart';
+import 'package:beyou/screens/home/bloc/home_bloc.dart';
+import 'package:beyou/screens/home/widget/home_statistics.dart';
+import 'package:beyou/screens/workout_details_screen/page/workout_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

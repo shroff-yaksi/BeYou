@@ -1,15 +1,15 @@
 import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fitness_flutter/core/const/color_constants.dart';
-import 'package:fitness_flutter/core/const/path_constants.dart';
-import 'package:fitness_flutter/core/const/text_constants.dart';
-import 'package:fitness_flutter/core/service/auth_service.dart';
-import 'package:fitness_flutter/screens/common_widgets/settings_container.dart';
-import 'package:fitness_flutter/screens/edit_account/edit_account_screen.dart';
-import 'package:fitness_flutter/screens/reminder/page/reminder_page.dart';
-import 'package:fitness_flutter/screens/settings/bloc/bloc/settings_bloc.dart';
-import 'package:fitness_flutter/screens/sign_in/page/sign_in_page.dart';
+import 'package:beyou/core/const/color_constants.dart';
+import 'package:beyou/core/const/path_constants.dart';
+import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/core/service/auth_service.dart';
+import 'package:beyou/screens/common_widgets/settings_container.dart';
+import 'package:beyou/screens/edit_account/edit_account_screen.dart';
+import 'package:beyou/screens/reminder/page/reminder_page.dart';
+import 'package:beyou/screens/settings/bloc/bloc/settings_bloc.dart';
+import 'package:beyou/screens/sign_in/page/sign_in_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,7 +1,7 @@
-import 'package:fitness_flutter/core/const/color_constants.dart';
-import 'package:fitness_flutter/core/const/data_constants.dart';
-import 'package:fitness_flutter/data/workout_data.dart';
-import 'package:fitness_flutter/screens/workouts/widget/workout_card.dart';
+import 'package:beyou/core/const/color_constants.dart';
+import 'package:beyou/core/const/data_constants.dart';
+import 'package:beyou/data/workout_data.dart';
+import 'package:beyou/screens/workouts/widget/workout_card.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutContent extends StatelessWidget {

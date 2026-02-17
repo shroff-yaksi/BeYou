@@ -1,10 +1,10 @@
-import 'package:fitness_flutter/core/const/color_constants.dart';
-import 'package:fitness_flutter/core/const/path_constants.dart';
-import 'package:fitness_flutter/core/const/text_constants.dart';
-import 'package:fitness_flutter/screens/home/page/home_page.dart';
-import 'package:fitness_flutter/screens/settings/settings_screen.dart';
-import 'package:fitness_flutter/screens/tab_bar/bloc/tab_bar_bloc.dart';
-import 'package:fitness_flutter/screens/workouts/page/workouts_page.dart';
+import 'package:beyou/core/const/color_constants.dart';
+import 'package:beyou/core/const/path_constants.dart';
+import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/screens/home/page/home_page.dart';
+import 'package:beyou/screens/settings/settings_screen.dart';
+import 'package:beyou/screens/tab_bar/bloc/tab_bar_bloc.dart';
+import 'package:beyou/screens/workouts/page/workouts_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

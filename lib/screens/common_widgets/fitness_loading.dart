@@ -1,4 +1,4 @@
-import 'package:fitness_flutter/core/const/color_constants.dart';
+import 'package:beyou/core/const/color_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
-import 'package:fitness_flutter/screens/home/bloc/home_bloc.dart';
-import 'package:fitness_flutter/screens/home/widget/home_content.dart';
+import 'package:beyou/screens/home/bloc/home_bloc.dart';
+import 'package:beyou/screens/home/widget/home_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
