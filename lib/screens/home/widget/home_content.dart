@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:beyou/core/const/color_constants.dart';
-import 'package:beyou/core/const/data_constants.dart';
-import 'package:beyou/core/const/path_constants.dart';
-import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/core/constants/color_constants.dart';
+import 'package:beyou/core/constants/data_constants.dart';
+import 'package:beyou/core/constants/path_constants.dart';
+import 'package:beyou/core/constants/text_constants.dart';
 import 'package:beyou/screens/edit_account/edit_account_screen.dart';
 import 'package:beyou/screens/home/bloc/home_bloc.dart';
 import 'package:beyou/screens/home/widget/home_statistics.dart';

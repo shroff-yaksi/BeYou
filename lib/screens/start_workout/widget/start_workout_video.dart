@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:chewie/chewie.dart';
-import 'package:beyou/core/const/color_constants.dart';
+import 'package:beyou/core/constants/color_constants.dart';
 import 'package:beyou/data/exercise_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';

@@ -1,5 +1,5 @@
-import 'package:beyou/core/const/path_constants.dart';
-import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/core/constants/path_constants.dart';
+import 'package:beyou/core/constants/text_constants.dart';
 import 'package:beyou/data/workout_data.dart';
 import 'package:beyou/screens/workout_details_screen/widget/panel/exercises_list.dart';
 import 'package:beyou/screens/workout_details_screen/widget/panel/workout_tag.dart';

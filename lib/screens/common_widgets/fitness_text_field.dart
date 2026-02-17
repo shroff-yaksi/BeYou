@@ -1,5 +1,5 @@
-import 'package:beyou/core/const/color_constants.dart';
-import 'package:beyou/core/const/path_constants.dart';
+import 'package:beyou/core/constants/color_constants.dart';
+import 'package:beyou/core/constants/path_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

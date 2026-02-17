@@ -1,6 +1,6 @@
-import 'package:beyou/core/const/color_constants.dart';
-import 'package:beyou/core/const/path_constants.dart';
-import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/core/constants/color_constants.dart';
+import 'package:beyou/core/constants/path_constants.dart';
+import 'package:beyou/core/constants/text_constants.dart';
 import 'package:flutter/material.dart';
 
 class HomeStatistics extends StatelessWidget {

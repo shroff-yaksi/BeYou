@@ -1,6 +1,6 @@
-import 'package:beyou/core/const/color_constants.dart';
-import 'package:beyou/core/const/path_constants.dart';
-import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/core/constants/color_constants.dart';
+import 'package:beyou/core/constants/path_constants.dart';
+import 'package:beyou/core/constants/text_constants.dart';
 import 'package:beyou/screens/home/page/home_page.dart';
 import 'package:beyou/screens/settings/settings_screen.dart';
 import 'package:beyou/screens/tab_bar/bloc/tab_bar_bloc.dart';

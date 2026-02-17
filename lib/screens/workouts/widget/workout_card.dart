@@ -1,5 +1,5 @@
-import 'package:beyou/core/const/color_constants.dart';
-import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/core/constants/color_constants.dart';
+import 'package:beyou/core/constants/text_constants.dart';
 import 'package:beyou/data/workout_data.dart';
 import 'package:beyou/screens/workouts/bloc/workouts_bloc.dart';
 import 'package:flutter/material.dart';

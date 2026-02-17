@@ -1,6 +1,6 @@
-import 'package:beyou/core/const/color_constants.dart';
-import 'package:beyou/core/const/data_constants.dart';
-import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/core/constants/color_constants.dart';
+import 'package:beyou/core/constants/data_constants.dart';
+import 'package:beyou/core/constants/text_constants.dart';
 import 'package:beyou/screens/reminder/bloc/reminder_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

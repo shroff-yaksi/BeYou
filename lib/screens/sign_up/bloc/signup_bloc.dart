@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:beyou/core/service/auth_service.dart';
-import 'package:beyou/core/service/validation_service.dart';
+import 'package:beyou/core/utils/validation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 

@@ -1,6 +1,6 @@
-import 'package:beyou/core/const/color_constants.dart';
-import 'package:beyou/core/const/path_constants.dart';
-import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/core/constants/color_constants.dart';
+import 'package:beyou/core/constants/path_constants.dart';
+import 'package:beyou/core/constants/text_constants.dart';
 import 'package:beyou/data/exercise_data.dart';
 import 'package:beyou/screens/common_widgets/fitness_button.dart';
 import 'package:beyou/screens/start_workout/bloc/start_workout_bloc.dart';

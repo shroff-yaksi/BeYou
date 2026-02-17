@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:beyou/core/const/text_constants.dart';
+import 'package:beyou/core/constants/text_constants.dart';
 import 'package:beyou/core/service/user_service.dart';
 import 'package:meta/meta.dart';
 

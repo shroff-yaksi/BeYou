@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:beyou/core/const/color_constants.dart';
-import 'package:beyou/core/const/path_constants.dart';
-import 'package:beyou/core/const/text_constants.dart';
-import 'package:beyou/core/service/validation_service.dart';
+import 'package:beyou/core/constants/color_constants.dart';
+import 'package:beyou/core/constants/path_constants.dart';
+import 'package:beyou/core/constants/text_constants.dart';
+import 'package:beyou/core/utils/validation_service.dart';
 import 'package:beyou/screens/change_password/change_password_page.dart';
 import 'package:beyou/screens/common_widgets/fitness_button.dart';
 import 'package:beyou/screens/common_widgets/fitness_loading.dart';

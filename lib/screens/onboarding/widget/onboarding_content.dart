@@ -1,6 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:beyou/core/const/color_constants.dart';
-import 'package:beyou/core/const/data_constants.dart';
+import 'package:beyou/core/constants/color_constants.dart';
+import 'package:beyou/core/constants/data_constants.dart';
 import 'package:beyou/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
