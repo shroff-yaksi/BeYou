@@ -1,50 +1,52 @@
-# BeYou — Your Complete Wellness Journey
+<div align="center">
 
-> **Platform:** Flutter (iOS & Android) · **Stage:** In Development · **Target Beta:** September 2026  
-> **Market:** India-first · **Team:** 4 members
+# 💪 BeYou
 
-BeYou is a comprehensive wellness super-app combining **Fitness**, **Mindfulness**, **Nutrition**, **Community**, and **Commerce** into one unified platform — replacing the need for 5+ separate apps.
+**Your complete wellness journey — fitness, mindfulness, nutrition, and more.**
+
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![GetX](https://img.shields.io/badge/BLoC-13B9FD?style=for-the-badge&logo=flutter&logoColor=white)
+
+</div>
 
 ---
 
-## Modules
+## ✨ Overview
 
-| Module | Core Features |
+BeYou is a comprehensive wellness super-app combining **Fitness**, **Mindfulness**, **Nutrition**, **Community**, and **Commerce** into one unified Flutter platform — built for India, designed for everyone.
+
+---
+
+## 🧩 Modules
+
+| Module | What's Inside |
 |--------|--------------|
-| 🏋️ **Fitness** | 800+ exercises, workout programs, active workout timer, GPS tracking, progress charts, streak tracking |
-| 🧘 **Mindfulness** | Guided meditation, breathing exercises, sleep sounds, mood journaling, "I Am Clean" addiction tracker, Ayurvedic wellness |
-| 🥗 **Meal & Nutrition** | Food logging (manual, barcode, photo AI), macro tracking, 50,000+ recipes, intermittent fasting timer, meal plans |
-| 👥 **Community** | Social feed, workout challenges, groups, leaderboards, live sessions, accountability partners |
-| 🛒 **Store** | Gym equipment, Ayurvedic herbs, books, coach directory, workout program marketplace |
+| 🏋️ **Fitness** | 800+ exercises, workout programs, active timer, GPS tracking, streaks, progress charts |
+| 🧘 **Mindfulness** | Guided meditation, breathing exercises, sleep sounds, mood journal, *I Am Clean* addiction tracker, Ayurvedic wellness |
+| 🥗 **Nutrition** | Food logging (manual, barcode, photo AI), macro tracking, 50k+ recipes, fasting timer, meal plans |
+| 👥 **Community** | Social feed, challenges, groups, leaderboards, live sessions, accountability partners |
+| 🛒 **Store** | Gym equipment, Ayurvedic herbs, books, coach directory, program marketplace |
 
 ---
 
-## Tech Stack
+## ⚙️ Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
+| Layer | Tech |
+|-------|------|
 | Framework | Flutter (Dart) |
 | State Management | flutter_bloc (BLoC pattern) |
-| Backend | Firebase (Auth, Firestore, Storage, Functions) |
+| Backend | Firebase — Auth, Firestore, Storage, Functions |
 | Navigation | GoRouter |
 | Architecture | Clean Architecture (`core/` · `data/` · `features/`) |
-| Local DB | Hive |
+| Local Storage | Hive |
 | Charts | fl_chart |
 | Payments | Razorpay |
 
 ---
 
-## Project Status
-
-> ⚠️ **Phase 1 — Foundation** (In Progress, Feb 1 – Mar 31, 2026)
-
-The current codebase is a **forked Flutter fitness starter** (Perpetio). Clean Architecture refactoring is in progress on the `refactor/clean-architecture` branch.
-
-See [`REMAINING_TASKS.md`](./REMAINING_TASKS.md) for the full phased roadmap.
-
----
-
-## Getting Started
+## 🚀 Getting Started
 
 ```bash
 # Prerequisites: Flutter SDK, Firebase CLI
@@ -53,21 +55,22 @@ flutter pub get
 flutter run
 ```
 
-> Firebase is configured (`firebase_options.dart` exists) but services are not fully wired yet.
+> Firebase is configured (`firebase_options.dart` exists).  
+> Clean Architecture refactoring is in progress on this branch.
 
 ---
 
-## Roadmap Overview
+## 📁 Structure
 
-| Phase | Timeline | Focus |
-|-------|----------|-------|
-| Phase 1 | Feb – Mar 2026 | Foundation, Auth, Design System |
-| Phase 2 | Apr – May 2026 | Fitness Module |
-| Phase 3 | Jun – Jul 2026 | Mindfulness Module |
-| Phase 4 | Jul – Aug 2026 | Meal & Nutrition Module |
-| Phase 5 (Beta) | Sep 2026 | QA, Polish, App Store submission |
-| Phase 6+ | Oct 2026+ | Community, Store, Subscriptions |
+```
+lib/
+├── core/           # Shared utilities, themes, constants
+├── data/           # Models, repositories, data sources
+└── features/       # Feature modules (auth, fitness, mindfulness, etc.)
+```
 
 ---
 
-*Target: India-first wellness super-app · Public launch Jan 31, 2027*
+<div align="center">
+<sub>India-first wellness super-app · Flutter + Firebase</sub>
+</div>
