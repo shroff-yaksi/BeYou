@@ -1,30 +1,73 @@
-# Fitness app
+# BeYou — Your Complete Wellness Journey
 
-Example of Fitness app done using Flutter for iOS and Android platforms.
+> **Platform:** Flutter (iOS & Android) · **Stage:** In Development · **Target Beta:** September 2026  
+> **Market:** India-first · **Team:** 4 members
 
-![Home](https://github.com/perpetio/fitness/blob/master/examples/Home.png?raw=true) ![Workout](https://github.com/perpetio/fitness/blob/master/examples/Workout_1.png?raw=true)
+BeYou is a comprehensive wellness super-app combining **Fitness**, **Mindfulness**, **Nutrition**, **Community**, and **Commerce** into one unified platform — replacing the need for 5+ separate apps.
 
-# See Behance UI/UX case:
-https://www.behance.net/gallery/132549709/Selfit-Fitness-app?tracking_source=for_you_feed_user_published
+---
 
-## See our tutorial posts:
+## Modules
 
-Part 1 - [How to Make a Fitness App With Flutter: A Tutorial by Perpetio. Part I](https://perpet.io/blog/how-to-build-a-clubhouse-clone-app-with-flutter-a-tutorial-by-perpetio-part-1/)
+| Module | Core Features |
+|--------|--------------|
+| 🏋️ **Fitness** | 800+ exercises, workout programs, active workout timer, GPS tracking, progress charts, streak tracking |
+| 🧘 **Mindfulness** | Guided meditation, breathing exercises, sleep sounds, mood journaling, "I Am Clean" addiction tracker, Ayurvedic wellness |
+| 🥗 **Meal & Nutrition** | Food logging (manual, barcode, photo AI), macro tracking, 50,000+ recipes, intermittent fasting timer, meal plans |
+| 👥 **Community** | Social feed, workout challenges, groups, leaderboards, live sessions, accountability partners |
+| 🛒 **Store** | Gym equipment, Ayurvedic herbs, books, coach directory, workout program marketplace |
 
-Part 2 - [How to Make a Fitness App With Flutter: A Tutorial by Perpetio. Part II](https://perpet.io/blog/how-to-make-a-fitness-app-with-flutter-a-tutorial-by-perpetio-part-ii/)
+---
 
-Part 3 - [How to Make a Fitness App With Flutter: A Tutorial by Perpetio. Part III](https://perpet.io/blog/how-to-make-a-fitness-app-with-flutter-a-tutorial-by-perpetio-part-iii/)
+## Tech Stack
 
+| Layer | Technology |
+|-------|-----------|
+| Framework | Flutter (Dart) |
+| State Management | flutter_bloc (BLoC pattern) |
+| Backend | Firebase (Auth, Firestore, Storage, Functions) |
+| Navigation | GoRouter |
+| Architecture | Clean Architecture (`core/` · `data/` · `features/`) |
+| Local DB | Hive |
+| Charts | fl_chart |
+| Payments | Razorpay |
+
+---
+
+## Project Status
+
+> ⚠️ **Phase 1 — Foundation** (In Progress, Feb 1 – Mar 31, 2026)
+
+The current codebase is a **forked Flutter fitness starter** (Perpetio). Clean Architecture refactoring is in progress on the `refactor/clean-architecture` branch.
+
+See [`REMAINING_TASKS.md`](./REMAINING_TASKS.md) for the full phased roadmap.
+
+---
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+```bash
+# Prerequisites: Flutter SDK, Firebase CLI
 
-A few resources to get you started if this is your first Flutter project:
+flutter pub get
+flutter run
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+> Firebase is configured (`firebase_options.dart` exists) but services are not fully wired yet.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## Roadmap Overview
+
+| Phase | Timeline | Focus |
+|-------|----------|-------|
+| Phase 1 | Feb – Mar 2026 | Foundation, Auth, Design System |
+| Phase 2 | Apr – May 2026 | Fitness Module |
+| Phase 3 | Jun – Jul 2026 | Mindfulness Module |
+| Phase 4 | Jul – Aug 2026 | Meal & Nutrition Module |
+| Phase 5 (Beta) | Sep 2026 | QA, Polish, App Store submission |
+| Phase 6+ | Oct 2026+ | Community, Store, Subscriptions |
+
+---
+
+*Target: India-first wellness super-app · Public launch Jan 31, 2027*
