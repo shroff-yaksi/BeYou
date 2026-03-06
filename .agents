@@ -1,0 +1,117 @@
+# .agents - Agent Workflow & Rules for BeYou
+
+> This file guides agents working on the BeYou Flutter migration project.
+
+---
+
+## QUICK RULES
+
+1. **NEVER commit** - Give commands only, human executes
+2. **One phase at a time** - Wait for "all done properly" before next phase
+3. **Human tasks marked** - Always respect HUMAN TASKS sections
+4. **Test first** - Provide test commands after each phase
+
+---
+
+## WORKFLOW CYCLE
+
+```
+1. Agent: Start Phase N
+2. Agent: List files (human verifies)
+3. Agent: Execute changes
+4. Agent: Give test commands
+5. Human: Runs tests, says "all done properly"
+6. Agent: Gives git commands
+7. Human: Executes git
+8. Repeat
+```
+
+---
+
+## FLUTTER CODE QUALITY
+
+### Import Rules
+- Same feature: `../bloc/` (relative)
+- Cross-feature: `package:beyou/features/auth/`
+- NEVER use: `lib/screens/...` (old paths)
+
+### File Naming
+- Files: `snake_case.dart`
+- Classes: `PascalCase`
+- Models: `user_model.dart` (singular)
+
+### Clean Architecture
+```
+lib/features/<feature>/
+├── bloc/           # Business logic
+├── data/           # Repositories
+├── models/         # Data models
+├── pages/          # Screens
+└── widgets/       # UI components
+```
+
+---
+
+## COMMON MISTAKES TO AVOID
+
+### Broken Imports
+```dart
+// WRONG
+import '../../../screens/onboarding/bloc/...';
+
+// RIGHT
+import 'package:beyou/features/onboarding/bloc/...';
+```
+
+### Missing Exports
+- Always create barrel file: `exports.dart`
+- Export: bloc, pages, widgets
+
+### Router Not Updated
+- Update `app_router.dart` imports after moving pages
+
+### DI Not Registered
+- Add to `injection.dart`: `getIt.registerFactory<...>(() => ...());`
+
+---
+
+## TEST COMMANDS
+
+After each phase:
+```bash
+flutter analyze
+flutter build apk --debug
+```
+
+---
+
+## GIT PROTOCOL
+
+After human says "all done properly":
+```bash
+git add -A
+git commit -m "phase N: description"
+git push origin [branch]
+```
+
+---
+
+## PHASES
+
+| # | Feature | Status |
+|---|---------|--------|
+| 1 | Onboarding | Pending |
+| 2 | Auth | Pending |
+| 3 | Home | Pending |
+| 4 | Fitness | Pending |
+| 5 | Profile/Settings | Pending |
+| 6 | Reminder | Pending |
+| 7 | Data Layer Cleanup | Pending |
+
+---
+
+## IMPORTANT
+
+- Check MIGRATION_PLAN.md for detailed phase info
+- Check FLUTTER_CODE_QUALITY.md for detailed rules
+- Always wait for human confirmation before proceeding
