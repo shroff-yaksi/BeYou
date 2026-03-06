@@ -4,6 +4,7 @@ import 'package:beyou/screens/forgot_password/bloc/forgot_password_bloc.dart';
 import 'package:beyou/screens/forgot_password/widget/forgot_password_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class ForgotPasswordPage extends StatelessWidget {
           elevation: 0,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () => context.pop(),
           ),
           iconTheme: IconThemeData(
             color: ColorConstants.primaryColor,
@@ -37,7 +38,7 @@ class ForgotPasswordPage extends StatelessWidget {
         listenWhen: (_, currState) => currState is ForgotPasswordError || currState is ForgotPasswordSuccess,
         listener: (context, state) {
           if (state is ForgotPasswordSuccess) {
-            forgotPasswordSuccessfullySended(context);
+            _onResetSuccess(context);
           }
           if (state is ForgotPasswordError) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -49,9 +50,9 @@ class ForgotPasswordPage extends StatelessWidget {
     );
   }
 
-  Future<void> forgotPasswordSuccessfullySended(BuildContext context) async {
+  Future<void> _onResetSuccess(BuildContext context) async {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(TextConstants.resetPasswordLinkWasSent), duration: Duration(seconds: 2)));
     await Future.delayed(Duration(seconds: 2));
-    Navigator.pop(context);
+    if (context.mounted) context.pop();
   }
 }

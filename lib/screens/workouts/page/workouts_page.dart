@@ -1,8 +1,9 @@
-import 'package:beyou/screens/workout_details_screen/page/workout_details_page.dart';
+import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/screens/workouts/bloc/workouts_bloc.dart';
 import 'package:beyou/screens/workouts/widget/workout_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class WorkoutsPage extends StatelessWidget {
   const WorkoutsPage({Key? key}) : super(key: key);
@@ -23,11 +24,7 @@ class WorkoutsPage extends StatelessWidget {
         listenWhen: (_, currState) => currState is CardTappedState,
         listener: (context, state) {
           if (state is CardTappedState) {
-            Navigator.of(context, rootNavigator: true).push(
-              MaterialPageRoute(
-                builder: (_) => WorkoutDetailsPage(workout: state.workout),
-              ),
-            );
+            context.push(RouteNames.workoutDetails, extra: state.workout);
           }
         },
       ),

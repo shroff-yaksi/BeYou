@@ -3,6 +3,7 @@ import 'package:beyou/screens/start_workout/bloc/start_workout_bloc.dart';
 import 'package:beyou/screens/start_workout/widget/start_workout_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class StartWorkoutPage extends StatelessWidget {
   final ExerciseData exercise;
@@ -35,7 +36,7 @@ class StartWorkoutPage extends StatelessWidget {
         listenWhen: (_, currState) => currState is BackTappedState,
         listener: (context, state) {
           if (state is BackTappedState) {
-            Navigator.pop(context);
+            context.pop();
           }
         },
       ),

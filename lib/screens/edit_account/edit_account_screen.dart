@@ -4,8 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:beyou/core/constants/color_constants.dart';
 import 'package:beyou/core/constants/path_constants.dart';
 import 'package:beyou/core/constants/text_constants.dart';
+import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/core/utils/validation_service.dart';
-import 'package:beyou/screens/change_password/change_password_page.dart';
 import 'package:beyou/screens/common_widgets/fitness_button.dart';
 import 'package:beyou/screens/common_widgets/fitness_loading.dart';
 import 'package:beyou/screens/common_widgets/settings_container.dart';
@@ -14,6 +14,7 @@ import 'package:beyou/screens/edit_account/bloc/edit_account_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class EditAccountScreen extends StatefulWidget {
@@ -54,7 +55,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
             elevation: 0,
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios_new),
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () => context.pop(),
             ),
             iconTheme: IconThemeData(
               color: ColorConstants.primaryColor,
@@ -76,7 +77,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
               children: [_editAccountContent(context), FitnessLoading()],
             );
           if (state is EditAccountError) {
-            WidgetsBinding.instance!.addPostFrameCallback((_) async {
+            WidgetsBinding.instance.addPostFrameCallback((_) async {
               _showOpenSettingsPopUp();
             });
           }
@@ -143,10 +144,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
               SizedBox(height: 15),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ChangePasswordScreen()));
+                  context.push(RouteNames.changePassword);
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -183,7 +181,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                       userEmail = _emailController.text;
                     }
                   }
-                  Navigator.pop(context, true);
+                  context.pop(true);
                 },
               ),
             ]),

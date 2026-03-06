@@ -14,7 +14,7 @@ class RouteNames {
 
   // Fitness
   static const String workouts = '/workouts';
-  static const String workoutDetails = '/workout/:id';
+  static const String workoutDetails = '/workout-details';
   static const String startWorkout = '/start-workout';
 
   // Profile

@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:beyou/core/utils/exceptions.dart';
-import 'package:flutter/services.dart';
 
 class AuthService {
   static final FirebaseAuth auth = FirebaseAuth.instance;
@@ -50,7 +49,6 @@ class AuthService {
 }
 
 String getExceptionMessage(FirebaseAuthException e) {
-  print(e.code);
   switch (e.code) {
     case 'user-not-found':
       return 'User not found';

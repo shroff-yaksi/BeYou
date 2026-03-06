@@ -9,6 +9,7 @@ import 'package:beyou/screens/common_widgets/settings_container.dart';
 import 'package:beyou/screens/common_widgets/settings_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
   ChangePasswordScreen({Key? key}) : super(key: key);
@@ -41,7 +42,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             elevation: 0,
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios_new),
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () => context.pop(),
             ),
             iconTheme: IconThemeData(
               color: ColorConstants.primaryColor,
@@ -57,12 +58,12 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         builder: (context, state) {
           if (state is ChangePasswordProgress) return Stack(children: [_editAccountContent(context), FitnessLoading()]);
           if (state is ChangePasswordError) {
-            WidgetsBinding.instance!.addPostFrameCallback((_) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.error)));
             });
           }
           if (state is ChangePasswordSuccess) {
-            WidgetsBinding.instance!.addPostFrameCallback((_) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.message)));
             });
           }

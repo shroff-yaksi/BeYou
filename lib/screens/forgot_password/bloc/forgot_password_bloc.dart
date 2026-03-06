@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:beyou/core/service/auth_service.dart';
 import 'package:flutter/material.dart';
@@ -9,23 +7,22 @@ part 'forgot_password_event.dart';
 part 'forgot_password_state.dart';
 
 class ForgotPasswordBloc extends Bloc<ForgotPasswordEvent, ForgotPasswordState> {
-  ForgotPasswordBloc() : super(ForgotPasswordInitial());
-  final emailController = TextEditingController();
-  bool isError = false;
+  ForgotPasswordBloc() : super(ForgotPasswordInitial()) {
+    on<ForgotPasswordTappedEvent>(_onForgotPasswordTapped);
+  }
 
-  @override
-  Stream<ForgotPasswordState> mapEventToState(
-    ForgotPasswordEvent event,
-  ) async* {
-    if (event is ForgotPasswordTappedEvent) {
-      try {
-        yield ForgotPasswordLoading();
-        await AuthService.resetPassword(emailController.text);
-        yield ForgotPasswordSuccess();
-      } catch (e) {
-        print('Error: ' + e.toString());
-        yield ForgotPasswordError(message: e.toString());
-      }
+  final emailController = TextEditingController();
+
+  Future<void> _onForgotPasswordTapped(
+    ForgotPasswordTappedEvent event,
+    Emitter<ForgotPasswordState> emit,
+  ) async {
+    try {
+      emit(ForgotPasswordLoading());
+      await AuthService.resetPassword(emailController.text);
+      emit(ForgotPasswordSuccess());
+    } catch (e) {
+      emit(ForgotPasswordError(message: e.toString()));
     }
   }
 }

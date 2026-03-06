@@ -4,15 +4,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:beyou/core/constants/color_constants.dart';
 import 'package:beyou/core/constants/path_constants.dart';
 import 'package:beyou/core/constants/text_constants.dart';
+import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/core/service/auth_service.dart';
 import 'package:beyou/screens/common_widgets/settings_container.dart';
-import 'package:beyou/screens/edit_account/edit_account_screen.dart';
-import 'package:beyou/screens/reminder/page/reminder_page.dart';
 import 'package:beyou/screens/settings/bloc/bloc/settings_bloc.dart';
-import 'package:beyou/screens/sign_in/page/sign_in_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -70,7 +69,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               TextButton(
                   onPressed: () async {
-                    await Navigator.push(context, MaterialPageRoute(builder: (context) => EditAccountScreen()));
+                    await context.push(RouteNames.editAccount);
                     setState(() {
                       photoUrl = user?.photoURL ?? null;
                     });
@@ -85,7 +84,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Text(TextConstants.reminder, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
               withArrow: true,
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => ReminderPage()));
+                context.push(RouteNames.reminder);
               },
             ),
             if (!kIsWeb)
@@ -102,10 +101,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 child: Text(TextConstants.signOut, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
                 onTap: () {
                   AuthService.signOut();
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (_) => SignInPage()),
-                  );
+                  context.go(RouteNames.signIn);
                 }),
             SizedBox(height: 15),
             Text(TextConstants.joinUs, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),

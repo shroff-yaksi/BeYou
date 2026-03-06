@@ -1,10 +1,9 @@
-import 'package:beyou/screens/forgot_password/page/forgot_password_page.dart';
+import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/screens/sign_in/bloc/sign_in_bloc.dart';
 import 'package:beyou/screens/sign_in/widget/sign_in_content.dart';
-import 'package:beyou/screens/sign_up/page/sign_up_page.dart';
-import 'package:beyou/screens/tab_bar/page/tab_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -28,11 +27,11 @@ class SignInPage extends StatelessWidget {
             currState is NextForgotPasswordPageState || currState is NextSignUpPageState || currState is NextTabBarPageState || currState is ErrorState,
         listener: (context, state) {
           if (state is NextForgotPasswordPageState) {
-            Navigator.of(context).push(MaterialPageRoute(builder: (_) => ForgotPasswordPage()));
+            context.push(RouteNames.forgotPassword);
           } else if (state is NextSignUpPageState) {
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => SignUpPage()));
+            context.go(RouteNames.signUp);
           } else if (state is NextTabBarPageState) {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => TabBarPage()));
+            context.go(RouteNames.home);
           } else if (state is ErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.message)),

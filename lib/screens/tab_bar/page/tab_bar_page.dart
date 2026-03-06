@@ -5,6 +5,7 @@ import 'package:beyou/screens/home/page/home_page.dart';
 import 'package:beyou/screens/settings/settings_screen.dart';
 import 'package:beyou/screens/tab_bar/bloc/tab_bar_bloc.dart';
 import 'package:beyou/screens/workouts/page/workouts_page.dart';
+import 'package:beyou/features/dosha/page/dosha_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -51,9 +52,16 @@ class TabBarPage extends StatelessWidget {
           label: TextConstants.workoutsIcon,
         ),
         BottomNavigationBarItem(
+          icon: Icon(
+            Icons.spa,
+            color: bloc.currentIndex == 2 ? ColorConstants.primaryColor : null,
+          ),
+          label: TextConstants.doshaIcon,
+        ),
+        BottomNavigationBarItem(
           icon: Image(
             image: AssetImage(PathConstants.settings),
-            color: bloc.currentIndex == 2 ? ColorConstants.primaryColor : null,
+            color: bloc.currentIndex == 3 ? ColorConstants.primaryColor : null,
           ),
           label: TextConstants.settingsIcon,
         ),
@@ -68,27 +76,8 @@ class TabBarPage extends StatelessWidget {
     final children = [
       HomePage(),
       WorkoutsPage(),
-      SettingsScreen()
-      // Scaffold(
-      //   body: Center(
-      //     child: RawMaterialButton(
-      //       fillColor: Colors.red,
-      //       child: Text(
-      //         TextConstants.signOut,
-      //         style: TextStyle(
-      //           color: ColorConstants.white,
-      //         ),
-      //       ),
-      //       onPressed: () {
-      //         AuthService.signOut();
-      //         Navigator.pushReplacement(
-      //           context,
-      //           MaterialPageRoute(builder: (_) => SignInPage()),
-      //         );
-      //       },
-      //     ),
-      //   ),
-      // ),
+      const DoshaPage(),
+      SettingsScreen(),
     ];
     return children[index];
   }

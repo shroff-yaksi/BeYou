@@ -6,11 +6,9 @@ import 'package:beyou/core/service/user_service.dart';
 
 class FirebaseStorageService {
   FirebaseStorage storage = FirebaseStorage.instance;
-  static Future<void> listExample() async {
-    ListResult result = await FirebaseStorage.instance.ref().listAll();
-    result.items.forEach((element) {
-      print(element.name);
-    });
+  static Future<List<Reference>> listAll() async {
+    final result = await FirebaseStorage.instance.ref().listAll();
+    return result.items;
   }
 
   static Future<bool> uploadImage({required String filePath}) async {
@@ -24,8 +22,7 @@ class FirebaseStorageService {
         return true;
       }
       return false;
-    } catch (e) {
-      print(e);
+    } catch (_) {
       return false;
     }
   }

@@ -15,6 +15,28 @@ class ExerciseData {
     required this.steps,
   });
 
+  factory ExerciseData.fromJson(Map<String, dynamic> json) {
+    return ExerciseData(
+      title: json['title'] as String,
+      minutes: json['minutes'] as int,
+      progress: (json['progress'] as num).toDouble(),
+      video: json['video'] as String,
+      description: json['description'] as String,
+      steps: (json['steps'] as List).cast<String>(),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'minutes': minutes,
+      'progress': progress,
+      'video': video,
+      'description': description,
+      'steps': steps,
+    };
+  }
+
   @override
   String toString() {
     return 'ExerciseData(title: $title, minutes: $minutes, progress: $progress, video: $video)';

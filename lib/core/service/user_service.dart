@@ -9,8 +9,7 @@ class UserService {
     try {
       await firebase.currentUser?.updatePhotoURL(photoUrl);
       return true;
-    } catch (e) {
-      print(e);
+    } catch (_) {
       return false;
     }
   }
@@ -22,7 +21,6 @@ class UserService {
       await firebase.currentUser?.verifyBeforeUpdateEmail(email);
       return true;
     } catch (e) {
-      print(e);
       throw Exception(e);
     }
   }

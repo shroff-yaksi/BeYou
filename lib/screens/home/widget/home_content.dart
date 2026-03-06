@@ -3,12 +3,12 @@ import 'package:beyou/core/constants/color_constants.dart';
 import 'package:beyou/core/constants/data_constants.dart';
 import 'package:beyou/core/constants/path_constants.dart';
 import 'package:beyou/core/constants/text_constants.dart';
-import 'package:beyou/screens/edit_account/edit_account_screen.dart';
+import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/screens/home/bloc/home_bloc.dart';
 import 'package:beyou/screens/home/widget/home_statistics.dart';
-import 'package:beyou/screens/workout_details_screen/page/workout_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'home_exercises_card.dart';
 
@@ -69,18 +69,12 @@ class HomeContent extends StatelessWidget {
               WorkoutCard(
                   color: ColorConstants.cardioColor,
                   workout: DataConstants.homeWorkouts[0],
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_) => WorkoutDetailsPage(
-                            workout: DataConstants.workouts[0],
-                          )))),
+                  onTap: () => context.push(RouteNames.workoutDetails, extra: DataConstants.workouts[0])),
               const SizedBox(width: 15),
               WorkoutCard(
                   color: ColorConstants.armsColor,
                   workout: DataConstants.homeWorkouts[1],
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_) => WorkoutDetailsPage(
-                            workout: DataConstants.workouts[2],
-                          )))),
+                  onTap: () => context.push(RouteNames.workoutDetails, extra: DataConstants.workouts[2])),
               const SizedBox(width: 20),
             ],
           ),
@@ -91,16 +85,12 @@ class HomeContent extends StatelessWidget {
 
   Widget _createProfileData(BuildContext context) {
     String displayName = "User";
-    String? photoUrl;
-    
+
     try {
       final user = FirebaseAuth.instance.currentUser;
       displayName = user?.displayName ?? "User";
-      photoUrl = user?.photoURL;
-    } catch (e) {
+    } catch (_) {
       // Firebase not initialized, use defaults
-      displayName = "User";
-      photoUrl = null;
     }
     
     return Padding(
@@ -136,9 +126,10 @@ class HomeContent extends StatelessWidget {
                     backgroundImage: AssetImage(PathConstants.profile),
                     radius: 60),
                 onTap: () async {
-                  await Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => EditAccountScreen()));
-                  BlocProvider.of<HomeBloc>(context).add(ReloadImageEvent());
+                  await context.push(RouteNames.editAccount);
+                  if (context.mounted) {
+                    BlocProvider.of<HomeBloc>(context).add(ReloadImageEvent());
+                  }
                 },
               );
             },

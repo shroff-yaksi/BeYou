@@ -1,8 +1,9 @@
+import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:beyou/screens/onboarding/widget/onboarding_content.dart';
-import 'package:beyou/screens/sign_up/page/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingPage extends StatelessWidget {
   @override
@@ -18,13 +19,7 @@ class OnboardingPage extends StatelessWidget {
       child: BlocConsumer<OnboardingBloc, OnboardingState>(
         listenWhen: (_, currState) => currState is NextScreenState,
         listener: (context, state) {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (_) {
-                return SignUpPage();
-              },
-            ),
-          );
+          context.go(RouteNames.signUp);
         },
         buildWhen: (_, currState) => currState is OnboardingInitial,
         builder: (context, state) {

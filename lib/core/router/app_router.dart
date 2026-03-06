@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:beyou/core/router/route_names.dart';
+import 'package:beyou/data/workout_data.dart';
 import 'package:beyou/screens/onboarding/page/onboarding_page.dart';
 import 'package:beyou/screens/tab_bar/page/tab_bar_page.dart';
 import 'package:beyou/screens/sign_in/page/sign_in_page.dart';
@@ -10,6 +11,7 @@ import 'package:beyou/screens/settings/settings_screen.dart';
 import 'package:beyou/screens/edit_account/edit_account_screen.dart';
 import 'package:beyou/screens/change_password/change_password_page.dart';
 import 'package:beyou/screens/reminder/page/reminder_page.dart';
+import 'package:beyou/screens/workout_details_screen/page/workout_details_page.dart';
 
 /// GoRouter configuration for app navigation
 class AppRouter {
@@ -35,7 +37,7 @@ class AppRouter {
         name: 'onboarding',
         pageBuilder: (context, state) => MaterialPage(
           key: state.pageKey,
-          child: const OnboardingPage(),
+          child: OnboardingPage(),
         ),
       ),
 
@@ -53,7 +55,7 @@ class AppRouter {
         name: 'signUp',
         pageBuilder: (context, state) => MaterialPage(
           key: state.pageKey,
-          child: const SignUpPage(),
+          child: SignUpPage(),
         ),
       ),
       GoRoute(
@@ -79,7 +81,7 @@ class AppRouter {
         name: 'editAccount',
         pageBuilder: (context, state) => MaterialPage(
           key: state.pageKey,
-          child: const EditAccountScreen(),
+          child: EditAccountScreen(),
         ),
       ),
       GoRoute(
@@ -87,7 +89,7 @@ class AppRouter {
         name: 'changePassword',
         pageBuilder: (context, state) => MaterialPage(
           key: state.pageKey,
-          child: const ChangePasswordPage(),
+          child: ChangePasswordScreen(),
         ),
       ),
 
@@ -99,6 +101,19 @@ class AppRouter {
           key: state.pageKey,
           child: const ReminderPage(),
         ),
+      ),
+
+      // Workout Details (receives WorkoutData via extra)
+      GoRoute(
+        path: RouteNames.workoutDetails,
+        name: 'workoutDetails',
+        pageBuilder: (context, state) {
+          final workout = state.extra as WorkoutData;
+          return MaterialPage(
+            key: state.pageKey,
+            child: WorkoutDetailsPage(workout: workout),
+          );
+        },
       ),
     ],
 

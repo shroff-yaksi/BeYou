@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:meta/meta.dart';
@@ -9,30 +7,33 @@ part 'reminder_event.dart';
 part 'reminder_state.dart';
 
 class ReminderBloc extends Bloc<ReminderEvent, ReminderState> {
-  ReminderBloc() : super(ReminderInitial());
+  ReminderBloc() : super(ReminderInitial()) {
+    on<RepeatDaySelectedEvent>(_onRepeatDaySelected);
+    on<ReminderNotificationTimeEvent>(_onNotificationTime);
+    on<OnSaveTappedEvent>(_onSaveTapped);
+  }
 
   int? selectedRepeatDayIndex;
   late DateTime reminderTime;
   int? dayTime;
 
-  @override
-  Stream<ReminderState> mapEventToState(
-    ReminderEvent event,
-  ) async* {
-    if (event is RepeatDaySelectedEvent) {
-      selectedRepeatDayIndex = event.index;
-      dayTime = event.dayTime;
-      yield RepeatDaySelectedState(index: selectedRepeatDayIndex);
-    } else if (event is ReminderNotificationTimeEvent) {
-      reminderTime = event.dateTime;
-      yield ReminderNotificationState();
-    } else if (event is OnSaveTappedEvent) {
-      _scheuleAtParticularTimeAndDate(reminderTime, dayTime);
-      yield OnSaveTappedState();
-    }
+  void _onRepeatDaySelected(RepeatDaySelectedEvent event, Emitter<ReminderState> emit) {
+    selectedRepeatDayIndex = event.index;
+    dayTime = event.dayTime;
+    emit(RepeatDaySelectedState(index: selectedRepeatDayIndex));
   }
 
-  Future _scheuleAtParticularTimeAndDate(
+  void _onNotificationTime(ReminderNotificationTimeEvent event, Emitter<ReminderState> emit) {
+    reminderTime = event.dateTime;
+    emit(ReminderNotificationState());
+  }
+
+  Future<void> _onSaveTapped(OnSaveTappedEvent event, Emitter<ReminderState> emit) async {
+    await _scheduleAtParticularTimeAndDate(reminderTime, dayTime);
+    emit(OnSaveTappedState());
+  }
+
+  Future<void> _scheduleAtParticularTimeAndDate(
       DateTime dateTime, int? dayTime) async {
     final flutterNotificationsPlugin = FlutterLocalNotificationsPlugin();
     final androidPlatformChannelSpecifics = AndroidNotificationDetails(

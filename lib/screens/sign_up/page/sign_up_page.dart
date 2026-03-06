@@ -1,9 +1,9 @@
-import 'package:beyou/screens/sign_in/page/sign_in_page.dart';
+import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/screens/sign_up/bloc/signup_bloc.dart';
 import 'package:beyou/screens/sign_up/widget/sign_up_content.dart';
-import 'package:beyou/screens/tab_bar/page/tab_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpPage extends StatelessWidget {
   @override
@@ -18,9 +18,9 @@ class SignUpPage extends StatelessWidget {
         listenWhen: (_, currState) => currState is NextTabBarPageState || currState is NextSignInPageState || currState is ErrorState,
         listener: (context, state) {
           if (state is NextTabBarPageState) {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => TabBarPage()));
+            context.go(RouteNames.home);
           } else if (state is NextSignInPageState) {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => SignInPage()));
+            context.go(RouteNames.signIn);
           } else if (state is ErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.message)),

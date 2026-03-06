@@ -5,6 +5,7 @@ import 'package:beyou/screens/reminder/bloc/reminder_bloc.dart';
 import 'package:beyou/screens/reminder/widget/reminder_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class ReminderPage extends StatelessWidget {
   const ReminderPage({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class ReminderPage extends StatelessWidget {
                   Icons.arrow_back_ios_new,
                   color: ColorConstants.primaryColor,
                 ),
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => context.pop(),
               ),
             ),
             floatingActionButtonLocation:
@@ -67,7 +68,7 @@ class ReminderPage extends StatelessWidget {
       },
       listenWhen: (_, currState) => currState is OnSaveTappedState,
       listener: (context, state) {
-        Navigator.of(context).pop();
+        context.pop();
       },
     );
   }
