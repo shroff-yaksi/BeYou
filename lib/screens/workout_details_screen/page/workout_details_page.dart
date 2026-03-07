@@ -12,7 +12,7 @@ import 'package:beyou/core/utils/list_extension.dart';
 
 class WorkoutDetailsPage extends StatelessWidget {
   final WorkoutData workout;
-  WorkoutDetailsPage({required this.workout});
+  const WorkoutDetailsPage({super.key, required this.workout});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class WorkoutDetailsPage extends StatelessWidget {
                   title: TextConstants.start,
                   onTap: () {
                     ExerciseData? exercise = workout.exerciseDataList.firstWhereOrNull((element) => element.progress < 1);
-                    if (exercise == null) exercise = workout.exerciseDataList.first;
+                    exercise ??= workout.exerciseDataList.first;
                     int exerciseIndex = workout.exerciseDataList.indexOf(exercise);
                     Navigator.of(context).push(
                       MaterialPageRoute(

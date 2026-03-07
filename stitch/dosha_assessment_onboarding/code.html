@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dosha Assessment Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-screen w-full flex-col overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex items-center bg-background-light dark:bg-background-dark px-4 py-4 border-b border-primary/10">
+<div class="flex items-center justify-start w-12">
+<button class="text-slate-900 dark:text-slate-100 flex items-center justify-center h-10 w-10 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+</div>
+<h1 class="flex-1 text-center text-lg font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100">
+                Dosha Assessment
+            </h1>
+<div class="flex items-center justify-end w-12">
+<button class="text-slate-900 dark:text-slate-100 flex items-center justify-center h-10 w-10 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">history</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area (SafeArea & SingleChildScrollView Simulation) -->
+<main class="flex-1 overflow-y-auto">
+<div class="max-w-2xl mx-auto px-6 py-8 flex flex-col items-center">
+<!-- Header Icon Container (80x80) -->
+<div class="w-20 h-20 flex items-center justify-center bg-primary/10 dark:bg-primary/20 rounded-xl mb-8">
+<span class="material-symbols-outlined text-[40px] text-primary">spa</span>
+</div>
+<!-- Title Section -->
+<h2 class="text-3xl font-bold text-center text-slate-900 dark:text-slate-100 mb-4">
+                    Ayurvedic Prakriti Assessment
+                </h2>
+<!-- Description Section -->
+<p class="text-base text-center text-slate-900/70 dark:text-slate-100/70 mb-2 leading-relaxed">
+                    Discover the dominant dosha for yourself or a loved one through a guided questionnaire rooted in traditional Ayurvedic principles.
+                </p>
+<!-- Sub-text Section -->
+<p class="text-sm text-center text-slate-900/50 dark:text-slate-100/50 mb-10 italic">
+                    21 questions across Physical, Mental, Lifestyle &amp; Environmental categories.
+                </p>
+<!-- Form Section -->
+<div class="w-full space-y-8">
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1" for="participant-name">
+                            Participant name
+                        </label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">person_outline</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all text-slate-900 dark:text-slate-100 placeholder:text-slate-400" id="participant-name" name="participant-name" placeholder="e.g. Ananya Sharma" type="text"/>
+</div>
+</div>
+<!-- Placeholder for visual depth - Hero Image/Illustration -->
+<div class="w-full aspect-[16/9] bg-primary/5 dark:bg-primary/10 rounded-xl overflow-hidden relative">
+<div class="absolute inset-0 flex items-center justify-center opacity-30">
+<span class="material-symbols-outlined text-9xl text-primary">self_improvement</span>
+</div>
+<div class="h-full w-full bg-cover bg-center mix-blend-overlay opacity-20" data-alt="Abstract ayurvedic pattern with botanical elements" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAoSvIV3W8LLqZHHjDO9Ywk3oMCg42_RjuTpPM1DZ08ZXOrvZXVZBcRl1ak9OQb9qd7gbcZUHRLgEjIOsAZbNPZ6NjKC7_Q0wQsWxwINSTAgamU-qboB08KukIb9nVsiOUo2kTuLSY2CkYdtVf7C6SiD_eZizUtLhQEtnzXyIxrMeEhbib9J7SUsYgUtDGdzNuiLyUfW8o4Or9uX4mp-KJn6RXhORwxMAHuKOSxpvrEGwaFIUF-HuHVE9FC2czP6Z_1-wTcOee80KM');">
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<footer class="p-6 bg-background-light dark:bg-background-dark border-t border-primary/10">
+<div class="max-w-2xl mx-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg shadow-primary/20 active:scale-[0.98]">
+<span class="material-symbols-outlined">play_arrow</span>
+<span class="text-base uppercase tracking-wider">Start Assessment</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

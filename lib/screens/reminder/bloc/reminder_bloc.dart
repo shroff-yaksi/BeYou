@@ -48,13 +48,11 @@ class ReminderBloc extends Bloc<ReminderEvent, ReminderState> {
         iOS: iOSPlatformChannelSpecifics);
 
     await flutterNotificationsPlugin.zonedSchedule(
-      1,
-      "Fitness",
-      "Hey, it's time to start your exercises!",
-      _scheduleWeekly(dateTime, days: _createNotificationDayOfTheWeek(dayTime)),
-      platformChannelSpecifics,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
+      id: 1,
+      title: "Fitness",
+      body: "Hey, it's time to start your exercises!",
+      scheduledDate: _scheduleWeekly(dateTime, days: _createNotificationDayOfTheWeek(dayTime)),
+      notificationDetails: platformChannelSpecifics,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
     );

@@ -94,7 +94,7 @@ class DoshaResultsView extends StatelessWidget {
                                     child: LinearProgressIndicator(
                                       value: entry.value / 100,
                                       minHeight: 10,
-                                      backgroundColor: color.withOpacity(0.15),
+                                      backgroundColor: color.withValues(alpha: 0.15),
                                       valueColor: AlwaysStoppedAnimation<Color>(color),
                                     ),
                                   ),

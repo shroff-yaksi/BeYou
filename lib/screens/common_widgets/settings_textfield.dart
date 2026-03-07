@@ -8,11 +8,11 @@ class SettingsTextField extends StatefulWidget {
   final String placeHolder;
 
   const SettingsTextField({
-    Key? key,
+    super.key,
     required this.controller,
     this.obscureText = false,
     required this.placeHolder,
-  }) : super(key: key);
+  });
 
   @override
   _SettingsTextFieldState createState() => _SettingsTextFieldState();
@@ -38,7 +38,7 @@ class _SettingsTextFieldState extends State<SettingsTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

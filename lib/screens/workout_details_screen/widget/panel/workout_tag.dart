@@ -5,7 +5,7 @@ class WorkoutTag extends StatelessWidget {
   final String icon;
   final String content;
 
-  WorkoutTag({required this.icon, required this.content});
+  const WorkoutTag({super.key, required this.icon, required this.content});
 
   @override
   Widget build(BuildContext context) {

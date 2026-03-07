@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BeYou Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#6358E1",
+                "background-light": "#f8f6f6",
+                "background-dark": "#221610",
+              },
+              fontFamily: {
+                "display": ["Public Sans"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<div class="relative flex h-screen w-full max-w-md mx-auto flex-col bg-white dark:bg-background-dark overflow-hidden">
+<!-- Top Navigation -->
+<div class="flex items-center justify-between p-6">
+<div class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined font-bold">fitness_center</span>
+</div>
+<button class="text-slate-500 dark:text-slate-400 text-base font-semibold leading-normal tracking-wide hover:text-primary transition-colors">
+            Skip
+        </button>
+</div>
+<!-- Main Content Area -->
+<div class="flex flex-col grow px-6">
+<!-- Illustration Container -->
+<div class="flex w-full grow items-center justify-center py-8">
+<div class="relative w-full aspect-square rounded-full bg-primary/5 flex items-center justify-center p-8">
+<div class="w-full h-full rounded-2xl bg-center bg-no-repeat bg-cover shadow-2xl shadow-primary/20" data-alt="A fit person doing a dynamic workout in a modern home gym" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlZY30PbGymukQAGeGX-qc0MhKlvyl05Q3R-fF0NkxKyFFhD0l_pm2EX8GtslEh8Gf5n0ze7lju5uctgn-7iqZ3iUD_1GElXYCkBbbL1gGbjGS-UfMh0CJzX7RHpdZ9G8xj7drEoaLzXTKUNdUT3lQlE1JAFJjJ-gVALX_jhT5njiU-FHZM4DqcBs2yJQ8brB_9fDS2Ty0a_L_MfKifQOq5CXlZqXPcsomddFpKQ_4T5lDxsTnihNx4DZMCsJjXJEDLNFHWHzsvUQ");'>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div class="absolute -bottom-2 -left-2 w-16 h-16 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center shadow-xl">
+<span class="material-symbols-outlined text-primary text-3xl">timer</span>
+</div>
+</div>
+</div>
+<!-- Text Section -->
+<div class="text-center space-y-4 mb-12">
+<h1 class="text-slate-900 dark:text-slate-100 tracking-tight text-4xl font-bold leading-tight px-4">
+                Workout anywhere
+            </h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg font-normal leading-relaxed px-6">
+                You can do your workout at home without any equipment, outside or at the gym.
+            </p>
+</div>
+<!-- Bottom Controls -->
+<div class="flex flex-col items-center justify-center gap-10 pb-12">
+<!-- Progress Indicators -->
+<div class="flex flex-row items-center justify-center gap-2">
+<div class="h-2 w-6 rounded-full bg-primary"></div>
+<div class="h-2 w-2 rounded-full bg-primary/20"></div>
+<div class="h-2 w-2 rounded-full bg-primary/20"></div>
+</div>
+<!-- Circular Progress Button -->
+<div class="relative flex items-center justify-center">
+<!-- SVG Progress Ring -->
+<svg class="w-24 h-24 transform -rotate-90">
+<circle class="text-primary/10" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="167.4" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<!-- Inner Action Button -->
+<button class="absolute w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white shadow-xl hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl font-bold">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

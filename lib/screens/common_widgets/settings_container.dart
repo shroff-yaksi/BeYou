@@ -6,13 +6,20 @@ class SettingsContainer extends StatelessWidget {
   final Widget child;
   final Function()? onTap;
 
-  SettingsContainer({Key? key, this.withArrow = false, required this.child, this.onTap}) : super(key: key);
+  const SettingsContainer({super.key, this.withArrow = false, required this.child, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.0),
       child: Container(
+        width: double.infinity,
+        height: 50,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color: ColorConstants.white,
+          boxShadow: [BoxShadow(color: ColorConstants.textBlack.withOpacity(0.12), blurRadius: 5.0, spreadRadius: 1.1)],
+        ),
         child: Material(
           color: Colors.transparent,
           child: InkWell(
@@ -25,13 +32,6 @@ class SettingsContainer extends StatelessWidget {
               ),
             ),
           ),
-        ),
-        width: double.infinity,
-        height: 50,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40),
-          color: ColorConstants.white,
-          boxShadow: [BoxShadow(color: ColorConstants.textBlack.withOpacity(0.12), blurRadius: 5.0, spreadRadius: 1.1)],
         ),
       ),
     );

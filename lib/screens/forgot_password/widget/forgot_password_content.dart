@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForgotPasswordContent extends StatefulWidget {
-  const ForgotPasswordContent({Key? key}) : super(key: key);
+  const ForgotPasswordContent({super.key});
 
   @override
   _ForgotPasswordContentState createState() => _ForgotPasswordContentState();
@@ -83,7 +83,7 @@ class _ForgotPasswordContentState extends State<ForgotPasswordContent> {
           isError: _isTextFieldError,
           onTextChanged: () {
             setState(() {
-              _isButtonEnabled = bloc.emailController.text.length > 0;
+              _isButtonEnabled = bloc.emailController.text.isNotEmpty;
             });
           },
         );

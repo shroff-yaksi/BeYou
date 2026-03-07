@@ -7,7 +7,7 @@ class WorkoutCard extends StatelessWidget {
   final WorkoutData workout;
   final Function() onTap;
 
-  WorkoutCard({
+  const WorkoutCard({super.key, 
     required this.color,
     required this.workout,
     required this.onTap,

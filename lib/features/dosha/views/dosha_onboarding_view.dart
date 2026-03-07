@@ -77,14 +77,14 @@ class _DoshaOnboardingViewState extends State<DoshaOnboardingView> {
               Text(
                 'Discover the dominant dosha for yourself or a loved one through a guided questionnaire rooted in traditional Ayurvedic principles.',
                 style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurface.withOpacity(0.7),
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
               ),
               const SizedBox(height: 8),
               Text(
                 '21 questions across Physical, Mental, Lifestyle & Environmental categories.',
                 style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.onSurface.withOpacity(0.5),
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                 ),
               ),
               const SizedBox(height: 32),

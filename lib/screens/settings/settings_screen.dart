@@ -15,7 +15,7 @@ import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -45,7 +45,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget _settingsContent(BuildContext context) {
     final User? user = FirebaseAuth.instance.currentUser;
     final displayName = user?.displayName ?? "No Username";
-    photoUrl = user?.photoURL ?? null;
+    photoUrl = user?.photoURL;
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
@@ -56,6 +56,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 child: photoUrl == null
                     ? CircleAvatar(backgroundImage: AssetImage(PathConstants.profile), radius: 60)
                     : CircleAvatar(
+                        radius: 60,
                         child: ClipOval(
                             child: FadeInImage.assetNetwork(
                           placeholder: PathConstants.profile,
@@ -64,14 +65,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           width: 200,
                           height: 120,
                         )),
-                        radius: 60,
                       ),
               ),
               TextButton(
                   onPressed: () async {
                     await context.push(RouteNames.editAccount);
                     setState(() {
-                      photoUrl = user?.photoURL ?? null;
+                      photoUrl = user?.photoURL;
                     });
                   },
                   style: TextButton.styleFrom(shape: CircleBorder(), backgroundColor: ColorConstants.primaryColor.withOpacity(0.16)),
@@ -81,15 +81,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Text(displayName, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             SizedBox(height: 15),
             SettingsContainer(
-              child: Text(TextConstants.reminder, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
               withArrow: true,
               onTap: () {
                 context.push(RouteNames.reminder);
               },
+              child: Text(TextConstants.reminder, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
             ),
             if (!kIsWeb)
               SettingsContainer(
-                child: Text(TextConstants.rateUsOn + '${Platform.isIOS ? 'App store' : 'Play market'}',
+                child: Text('${TextConstants.rateUsOn}${Platform.isIOS ? 'App store' : 'Play market'}',
                     style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
                 onTap: () {
                   return launch(Platform.isIOS ? 'https://www.apple.com/app-store/' : 'https://play.google.com/store');

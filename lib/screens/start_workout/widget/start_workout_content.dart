@@ -8,14 +8,13 @@ import 'package:beyou/screens/start_workout/page/start_workout_page.dart';
 import 'package:beyou/screens/start_workout/widget/start_workout_video.dart';
 import 'package:beyou/screens/workout_details_screen/bloc/workoutdetails_bloc.dart' as workout_bloc;
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StartWorkoutContent extends StatelessWidget {
   final ExerciseData exercise;
   final ExerciseData? nextExercise;
 
-  StartWorkoutContent({required this.exercise, required this.nextExercise});
+  const StartWorkoutContent({super.key, required this.exercise, required this.nextExercise});
 
   @override
   Widget build(BuildContext context) {
@@ -200,7 +199,7 @@ class Step extends StatelessWidget {
   final String number;
   final String description;
 
-  Step({required this.number, required this.description});
+  const Step({super.key, required this.number, required this.description});
   @override
   Widget build(BuildContext context) {
     return Row(

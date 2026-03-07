@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ec5b13",
+              "background-light": "#f8f6f6",
+              "background-dark": "#221610",
+            },
+            fontFamily: {
+              "display": ["Public Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<title>BeYou - Home</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<!-- Header -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 pt-6 justify-between sticky top-0 z-10">
+<div class="flex items-center gap-3">
+<div class="flex size-10 shrink-0 items-center overflow-hidden rounded-full border-2 border-primary/20">
+<img alt="User Profile Avatar" class="h-full w-full object-cover" data-alt="Close-up portrait of a smiling woman with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvvttXXtl52YGxYZBzHzHMuGvPGajW4X_feCzl9Ex08f1RNIWADa-cjGUnYttKMfVRt4wOydMJ3hfcZZYaipcfvwi8vdmQO5Nw_M98Xmv406ZtgGH71QkwJ_JBgD9bK9rCuQuxQwVFZAq1Lj4VazEjDETYtkUuAprHSaVoo30IE5ZFfZMVnR62RXMzwwUxzYpFnpTLbqQ7oBsz22J4Syrb3mXZSl-MebDJBathcm_Y4p1SxXjxXOCXiAfvrA5HvY72T2BbcfrjSeI"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Welcome back,</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">Hi, User</h2>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex size-10 items-center justify-center rounded-full bg-slate-200/50 dark:bg-slate-800/50 text-slate-700 dark:text-slate-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full bg-slate-200/50 dark:bg-slate-800/50 text-slate-700 dark:text-slate-200 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 size-2 bg-primary rounded-full border-2 border-background-light dark:border-background-dark"></span>
+</button>
+</div>
+</header>
+<!-- Stats Section -->
+<section class="px-4 py-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2 flex flex-col justify-between gap-2 rounded-xl p-6 bg-primary text-white shadow-lg shadow-primary/20">
+<div class="flex items-center justify-between">
+<p class="text-white/90 text-sm font-medium uppercase tracking-wider">Completed Workouts</p>
+<span class="material-symbols-outlined text-white/80">workspace_premium</span>
+</div>
+<p class="text-4xl font-extrabold leading-none">12</p>
+<p class="text-white/80 text-xs">+3 from last week</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">pending_actions</span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase">In Progress</p>
+</div>
+<p class="text-slate-900 dark:text-slate-100 text-2xl font-bold">4</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">schedule</span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase">Time Spent</p>
+</div>
+<p class="text-slate-900 dark:text-slate-100 text-2xl font-bold">5.5h</p>
+</div>
+</div>
+</section>
+<!-- Discovery Section -->
+<section class="py-4">
+<div class="flex items-center justify-between px-4 pb-4 pt-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold tracking-tight">Discover new workouts</h3>
+<a class="text-primary text-sm font-semibold" href="#">View all</a>
+</div>
+<div class="flex overflow-x-auto px-4 gap-4 no-scrollbar">
+<!-- Cardio Card -->
+<div class="flex flex-col gap-3 shrink-0 w-64">
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden group">
+<img alt="Cardio Workout Image" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110" data-alt="Person running outdoors during sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOGQ7ssvqELxLaFYrmARLfwC8qpGkcquiyQOviaGJoSi6tGWoNcX_TQycIKxMJ8fEhoqh46JZIHiOifk7KMCy57F7rXEva0Zo6MY65981UyH_fJaNzPxki1kYBum0KbnB1qKmngu7fw2O2_kvQyGUdP0oHazPdtV_qhA51cUMYwE1O0cIIiW2GXwzzfnv7V9-leg2brmlTBDg_Qnb2K5qg3WY5gtHUCBLpzCqI57pi6JW0F2BSQmFxenQLcB09WAkqXydNqnOajZ4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2 text-white bg-black/20 backdrop-blur-md px-2 py-1 rounded-lg text-xs">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                            Intermediate
+                        </div>
+</div>
+<div>
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold">Cardio Blaster</p>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-sm font-medium">
+<span class="material-symbols-outlined text-sm">timer</span>
+                            20 mins • 300 kcal
+                        </div>
+</div>
+</div>
+<!-- Arms Card -->
+<div class="flex flex-col gap-3 shrink-0 w-64">
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden group">
+<img alt="Arms Workout Image" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110" data-alt="Person lifting dumbbells in a gym" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuoHyQKCr8aHqkSKQW0s4hZCvMMSVPWbhV9kWF7tSZKR40TCyIQWq7xj6RrUir1HRCjLj-0kU1GYpbF8Glt-L0F3HTZSWrpg3lt8BQsjKUlQZEcM4NS80oeD0hsNTii5-K1XGCYSJqkBz38f34uaW5XznqFVmeZ6CkvKDcwkn3Z-3d9mgQrftqFkWvUb2uMkQ5OV1xvFl0swdnQtkXUjL_NUxp6W9bXS5SOX4r2qIem_K43uMd43oLtTB8fNU3wbudkFihdHvRko0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2 text-white bg-black/20 backdrop-blur-md px-2 py-1 rounded-lg text-xs">
+<span class="material-symbols-outlined text-sm">fitness_center</span>
+                            Beginner
+                        </div>
+</div>
+<div>
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold">Strong Arms</p>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-sm font-medium">
+<span class="material-symbols-outlined text-sm">timer</span>
+                            15 mins • 150 kcal
+                        </div>
+</div>
+</div>
+<!-- Yoga Card (Extra for scroll feel) -->
+<div class="flex flex-col gap-3 shrink-0 w-64">
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden group">
+<img alt="Yoga Session" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110" data-alt="Person doing yoga pose on a mat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA83b1QHpVp6Yhkay7fFhJbLYcr17o_v4x230f9KDJ6NUXohkCMla01CpK67TB2WBzuWBYXua_hM15pxjXVP6xr6jxnbDpQi48SdWaI9bQ3QpR-wDqHJoSB5efxahbmtZLBgSjI8QjwoumEn47hntOFG_JCNEKAEXYD_HbM7lJEC_Ez5F5aodhUHdMyTNRliKYaQno0cT9ry8x2aXuc66CxW0C29C7zun30W7Nyhz3jqTArmpEeIDclxvA3wOiav1LnaH5GflucMo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2 text-white bg-black/20 backdrop-blur-md px-2 py-1 rounded-lg text-xs">
+<span class="material-symbols-outlined text-sm">self_improvement</span>
+                            Relaxation
+                        </div>
+</div>
+<div>
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold">Evening Flow</p>
+<div class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-sm font-medium">
+<span class="material-symbols-outlined text-sm">timer</span>
+                            30 mins • 80 kcal
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Progress Card -->
+<section class="px-4 py-4">
+<div class="relative overflow-hidden rounded-2xl bg-slate-900 dark:bg-primary/10 p-6 text-white border border-primary/20">
+<div class="relative z-10 flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<h4 class="text-lg font-bold">Keep the progress!</h4>
+<p class="text-slate-300 dark:text-slate-400 text-sm">You're 80% through your weekly goal.</p>
+<div class="mt-4 flex items-center gap-3">
+<div class="h-2.5 flex-1 bg-slate-700 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full w-[80%] bg-primary rounded-full"></div>
+</div>
+<span class="text-xs font-bold">4/5 days</span>
+</div>
+</div>
+<div class="hidden sm:block size-20 text-primary/40">
+<span class="material-symbols-outlined !text-7xl">trending_up</span>
+</div>
+</div>
+<!-- Abstract Pattern Background -->
+<div class="absolute -right-4 -bottom-4 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined !text-[120px]">exercise</span>
+</div>
+</div>
+</section>
+<!-- Fixed Bottom Nav Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 px-4 pb-6 pt-3">
+<div class="flex items-center justify-around max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined !text-[26px]">home</span>
+<span class="text-[10px] font-bold uppercase tracking-tight">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined !text-[26px]">fitness_center</span>
+<span class="text-[10px] font-medium uppercase tracking-tight">Workouts</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined !text-[26px]">vital_signs</span>
+<span class="text-[10px] font-medium uppercase tracking-tight">Dosha</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined !text-[26px]">settings</span>
+<span class="text-[10px] font-medium uppercase tracking-tight">Settings</span>
+</a>
+</div>
+</nav>
+</div>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

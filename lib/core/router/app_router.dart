@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/data/workout_data.dart';
-import 'package:beyou/screens/onboarding/page/onboarding_page.dart';
+import 'package:beyou/features/onboarding/pages/onboarding_page.dart';
 import 'package:beyou/screens/tab_bar/page/tab_bar_page.dart';
 import 'package:beyou/screens/sign_in/page/sign_in_page.dart';
 import 'package:beyou/screens/sign_up/page/sign_up_page.dart';
@@ -18,7 +18,7 @@ class AppRouter {
   AppRouter._(); // Private constructor
 
   static final GoRouter router = GoRouter(
-    initialLocation: RouteNames.home,
+    initialLocation: RouteNames.onboarding,
     debugLogDiagnostics: true,
     routes: [
       // Home/Tab Bar (Main Screen)
@@ -37,7 +37,7 @@ class AppRouter {
         name: 'onboarding',
         pageBuilder: (context, state) => MaterialPage(
           key: state.pageKey,
-          child: OnboardingPage(),
+          child: const OnboardingPage(),
         ),
       ),
 

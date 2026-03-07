@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class OnboardingTile extends StatelessWidget {
   final title, imagePath, mainText;
 
-  OnboardingTile({this.imagePath, this.mainText, this.title});
+  const OnboardingTile({super.key, this.imagePath, this.mainText, this.title});
 
   @override
   Widget build(BuildContext context) {

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>BeYou - Workouts</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="pt-[50px] px-5 pb-6">
+<div class="flex items-center justify-between">
+<h1 class="text-2xl font-bold">Workouts</h1>
+<span class="material-symbols-outlined text-slate-500">search</span>
+</div>
+</header>
+<main class="flex-1 px-5 space-y-4 pb-24">
+<!-- Yoga Card -->
+<div class="bg-white dark:bg-slate-800 rounded-lg p-4 shadow-md flex items-center justify-between gap-4">
+<div class="flex-1 flex flex-col gap-1">
+<h3 class="text-[18px] font-bold">Yoga</h3>
+<div class="flex flex-col text-[16px] text-slate-500 dark:text-slate-400">
+<span>16 Exercises</span>
+<span>52 Minutes</span>
+</div>
+<div class="mt-2">
+<div class="flex justify-between items-end mb-1">
+<span class="text-[10px] font-bold text-primary">10/16</span>
+</div>
+<div class="w-full bg-primary/20 rounded-full h-[6px]">
+<div class="bg-primary h-[6px] rounded-full" style="width: 62.5%"></div>
+</div>
+</div>
+</div>
+<div class="w-24 h-24 rounded-[15px] overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-700">
+<img alt="Yoga pose on a mat" class="w-full h-full object-cover" data-alt="Woman doing a yoga pose on a mat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg5HLYoPS5MxUZsLWLctrwdo752Yh93-eXTdGx6_OnGt06B_fMNucCBTzhYo4N7eqFy9RE0tDELsyQu-wIDaGigIPrSz7mzZ3bwVCnMLPJaamp_dNh75IX4BqI2LyS3xGrPw0B9GWxdkXnSGtGhBaMuT6uceABUiB7d0HcQnpDqz66UXHbQJkS-O9jKPit8xfw_yOoIFgG_q9MnUACIaKi2BYnGGHaP4kS8zymIJhudkSyP52wobJXYLvOUrb62RVrP-dNTeAnjqk"/>
+</div>
+</div>
+<!-- Pilates Card -->
+<div class="bg-white dark:bg-slate-800 rounded-lg p-4 shadow-md flex items-center justify-between gap-4">
+<div class="flex-1 flex flex-col gap-1">
+<h3 class="text-[18px] font-bold">Pilates</h3>
+<div class="flex flex-col text-[16px] text-slate-500 dark:text-slate-400">
+<span>20 Exercises</span>
+<span>60 Minutes</span>
+</div>
+<div class="mt-2">
+<div class="flex justify-between items-end mb-1">
+<span class="text-[10px] font-bold text-primary">1/20</span>
+</div>
+<div class="w-full bg-primary/20 rounded-full h-[6px]">
+<div class="bg-primary h-[6px] rounded-full" style="width: 5%"></div>
+</div>
+</div>
+</div>
+<div class="w-24 h-24 rounded-[15px] overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-700">
+<img alt="Pilates stretching exercise" class="w-full h-full object-cover" data-alt="Person performing a pilates stretch on floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5ryRJ_gRvBPItK4LbZ9RN0VxKdBsyzd5x9TT7jT7S840zMocOjwxgUnQ4FKcYe-ulvUzdAr45q-ep0Iar64_e5-JvFMurgXmrvcCZ8uu6gAVFN8qGZiYIugTsSaiwOXOwB1G-eeopK987KJR4x6VrbRKO3JdROS7A1kXyHUbJPpOszRE5m6A8517zisb1neJUrZcqsbQPLAbEGXZShu3JnE8SdA_rcPdPykvx9Yf1cAh0_5oLwfvFB1RXpQGsduahB9xGCYm0GJc"/>
+</div>
+</div>
+<!-- Full Body Card -->
+<div class="bg-white dark:bg-slate-800 rounded-lg p-4 shadow-md flex items-center justify-between gap-4">
+<div class="flex-1 flex flex-col gap-1">
+<h3 class="text-[18px] font-bold">Full body</h3>
+<div class="flex flex-col text-[16px] text-slate-500 dark:text-slate-400">
+<span>14 Exercises</span>
+<span>48 Minutes</span>
+</div>
+<div class="mt-2">
+<div class="flex justify-between items-end mb-1">
+<span class="text-[10px] font-bold text-primary">12/14</span>
+</div>
+<div class="w-full bg-primary/20 rounded-full h-[6px]">
+<div class="bg-primary h-[6px] rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<div class="w-24 h-24 rounded-[15px] overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-700">
+<img alt="Intense full body workout" class="w-full h-full object-cover" data-alt="Dynamic shot of a high intensity workout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVMlOPGDKhSpR_ynbaN7DhtJ7OqwMes2iRHPcvkvlVZUESQF7xWjdi5L_RPYUWBT34YbPALBPhRbsC8PTnWxpSmvXKZY3JsGdOJDWnfRgOj7-cq84ZOLUj6KNiUgS2kZYIzPSkFz8kwsYREiyljDDU3Y5kMS1FIuQ5_AR89U-AKnIWYiQ-f9SAwS7OJ5ncWzrmoey9No7PB74c6zGMu8PUaAbF83clwpWRFP-beuo409i6sRe2SeJGWtajV9vgkD56AerHliuMLbU"/>
+</div>
+</div>
+<!-- Stretching Card -->
+<div class="bg-white dark:bg-slate-800 rounded-lg p-4 shadow-md flex items-center justify-between gap-4">
+<div class="flex-1 flex flex-col gap-1">
+<h3 class="text-[18px] font-bold">Stretching</h3>
+<div class="flex flex-col text-[16px] text-slate-500 dark:text-slate-400">
+<span>8 Exercises</span>
+<span>35 Minutes</span>
+</div>
+<div class="mt-2">
+<div class="flex justify-between items-end mb-1">
+<span class="text-[10px] font-bold text-primary">0/8</span>
+</div>
+<div class="w-full bg-primary/20 rounded-full h-[6px]">
+<div class="bg-primary h-[6px] rounded-full" style="width: 0%"></div>
+</div>
+</div>
+</div>
+<div class="w-24 h-24 rounded-[15px] overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-700">
+<img alt="Morning stretching routine" class="w-full h-full object-cover" data-alt="Close up of a person stretching arms" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk7DCHWemOKXI-jENcG4dz8KKmRAZ0gR1T8HQHuOJ9umhJe4_5NL2E9kqBWbk4k3jfdMpMovBSgNUcaTwO0LJPZVDb349fYenMmt7NOI2W0bXT42fzowb7hM9A7B8I0Rc-Jh9CWCOmhFh-VbCeCDji_JU8CM7x7R5I5188hfeKIXxiCi_COUKsozipxGYpzpDrDwvJa8u1DWIafohglE_Bk-PlUV5O15Q6494sgkms6yHg2Pb7BGYGv_gyIHqq4Y-y22Zy79kCCl4"/>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-6 py-2">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">exercise</span>
+<span class="text-[10px] font-bold">Workouts</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">hourglass_empty</span>
+<span class="text-[10px] font-medium">Dosha</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</a>
+</div>
+</nav>
+</body></html>

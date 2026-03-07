@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FitnessLoading extends StatelessWidget {
+  const FitnessLoading({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

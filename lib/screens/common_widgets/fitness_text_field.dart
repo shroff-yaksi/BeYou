@@ -1,7 +1,6 @@
 import 'package:beyou/core/constants/color_constants.dart';
 import 'package:beyou/core/constants/path_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class FitnessTextField extends StatefulWidget {
   final String title;
@@ -24,8 +23,8 @@ class FitnessTextField extends StatefulWidget {
     required this.errorText,
     this.textInputAction = TextInputAction.done,
     this.keyboardType,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _FitnessTextFieldState createState() => _FitnessTextFieldState();

@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WorkoutDetailsBody extends StatelessWidget {
   final WorkoutData workout;
-  WorkoutDetailsBody({required this.workout});
+  const WorkoutDetailsBody({super.key, required this.workout});
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +27,13 @@ class WorkoutDetailsBody extends StatelessWidget {
   Widget _createBackButton(BuildContext context) {
     final bloc = BlocProvider.of<WorkoutDetailsBloc>(context);
     return Positioned(
+      left: 20,
+      top: 14,
       child: SafeArea(
         child: BlocBuilder<WorkoutDetailsBloc, WorkoutDetailsState>(
           builder: (context, state) {
             return GestureDetector(
-              child: Container(
+              child: SizedBox(
                 width: 30,
                 height: 30,
                 child: Image(
@@ -45,13 +47,11 @@ class WorkoutDetailsBody extends StatelessWidget {
           },
         ),
       ),
-      left: 20,
-      top: 14,
     );
   }
 
   Widget _createImage() {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Image(
         image: AssetImage(workout.image),

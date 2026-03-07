@@ -14,8 +14,8 @@ import 'home_exercises_card.dart';
 
 class HomeContent extends StatelessWidget {
   const HomeContent({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class HomeContent extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 15),
-        Container(
+        SizedBox(
           height: 160,
           child: ListView(
             scrollDirection: Axis.horizontal,

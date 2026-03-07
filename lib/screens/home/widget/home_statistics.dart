@@ -4,7 +4,7 @@ import 'package:beyou/core/constants/text_constants.dart';
 import 'package:flutter/material.dart';
 
 class HomeStatistics extends StatelessWidget {
-  const HomeStatistics({Key? key}) : super(key: key);
+  const HomeStatistics({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +111,7 @@ class DataWorkouts extends StatelessWidget {
   final int count;
   final String text;
 
-  DataWorkouts({
+  const DataWorkouts({super.key, 
     required this.icon,
     required this.title,
     required this.count,

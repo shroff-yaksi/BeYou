@@ -7,10 +7,11 @@ import 'package:beyou/screens/common_widgets/fitness_text_field.dart';
 import 'package:beyou/screens/sign_up/bloc/signup_bloc.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpContent extends StatelessWidget {
+  const SignUpContent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

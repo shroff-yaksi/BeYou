@@ -1,12 +1,14 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:beyou/core/constants/color_constants.dart';
-import 'package:beyou/core/constants/data_constants.dart';
+import 'package:beyou/features/onboarding/data/onboarding_data.dart';
 import 'package:beyou/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class OnboardingContent extends StatelessWidget {
+  const OnboardingContent({super.key});
+
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<OnboardingBloc>(context);
@@ -31,7 +33,7 @@ class OnboardingContent extends StatelessWidget {
     return PageView(
       scrollDirection: Axis.horizontal,
       controller: controller,
-      children: DataConstants.onboardingTiles,
+      children: OnboardingData.tiles,
       onPageChanged: (index) {
         bloc.add(PageSwipedEvent(index: index));
       },

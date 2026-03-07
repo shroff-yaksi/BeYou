@@ -8,7 +8,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 
 class WorkoutCard extends StatelessWidget {
   final WorkoutData workout;
-  WorkoutCard({Key? key, required this.workout}) : super(key: key);
+  const WorkoutCard({super.key, required this.workout});
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +45,12 @@ class WorkoutCard extends StatelessWidget {
                         children: [
                           Text(workout.title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                           const SizedBox(height: 3),
-                          Text(workout.exercices + " " + TextConstants.exercisesUppercase,
+                          Text("${workout.exercices} ${TextConstants.exercisesUppercase}",
                               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: ColorConstants.grey),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2),
                           const SizedBox(height: 3),
-                          Text(workout.minutes + " " + TextConstants.minutes,
+                          Text("${workout.minutes} ${TextConstants.minutes}",
                               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: ColorConstants.grey),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2),

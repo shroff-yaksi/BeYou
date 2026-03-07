@@ -18,7 +18,7 @@ import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class EditAccountScreen extends StatefulWidget {
-  EditAccountScreen({Key? key}) : super(key: key);
+  const EditAccountScreen({super.key});
 
   @override
   _EditAccountScreenState createState() => _EditAccountScreenState();
@@ -38,7 +38,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
   void initState() {
     userName = user?.displayName ?? "No Username";
     userEmail = user?.email ?? 'No email';
-    photoUrl = user?.photoURL ?? null;
+    photoUrl = user?.photoURL;
     _nameController.text = userName;
     _emailController.text = userEmail;
     super.initState();
@@ -72,10 +72,11 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
             currState is EditAccountError ||
             currState is EditPhotoSuccess,
         builder: (context, state) {
-          if (state is EditAccountProgress)
+          if (state is EditAccountProgress) {
             return Stack(
               children: [_editAccountContent(context), FitnessLoading()],
             );
+          }
           if (state is EditAccountError) {
             WidgetsBinding.instance.addPostFrameCallback((_) async {
               _showOpenSettingsPopUp();
@@ -91,7 +92,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
   }
 
   Widget _editAccountContent(BuildContext context) {
-    EditAccountBloc _bloc = BlocProvider.of<EditAccountBloc>(context);
+    EditAccountBloc bloc = BlocProvider.of<EditAccountBloc>(context);
     double height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: SingleChildScrollView(
@@ -106,7 +107,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
               Center(
                 child: TextButton(
                   onPressed: () {
-                    _bloc.add(UploadImage());
+                    bloc.add(UploadImage());
                   },
                   child: Text(
                     TextConstants.editPhoto,
@@ -174,7 +175,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                   if (!(isNameInvalid || isEmailInvalid)) {
                     if (userName != _nameController.text ||
                         userEmail != _emailController.text) {
-                      _bloc.add(ChangeUserData(
+                      bloc.add(ChangeUserData(
                           displayName: _nameController.text,
                           email: _emailController.text));
                       userName = _nameController.text;
@@ -195,21 +196,22 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
     if (photoUrl != null) {
       if (photoUrl!.startsWith('https://')) {
         return CircleAvatar(
+            radius: 60,
             child: ClipOval(
                 child: FadeInImage.assetNetwork(
                     placeholder: PathConstants.profile,
                     image: photoUrl!,
                     fit: BoxFit.cover,
                     width: 200,
-                    height: 120)),
-            radius: 60);
+                    height: 120)));
       } else {
         return CircleAvatar(
             backgroundImage: FileImage(File(photoUrl!)), radius: 60);
       }
-    } else
+    } else {
       return CircleAvatar(
           backgroundImage: AssetImage(PathConstants.profile), radius: 60);
+    }
   }
 
   void _showOpenSettingsPopUp() {

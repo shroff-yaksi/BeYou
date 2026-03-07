@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class OnboardingPage extends StatelessWidget {
+  const OnboardingPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

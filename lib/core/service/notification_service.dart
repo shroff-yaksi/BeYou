@@ -21,7 +21,7 @@ class NotificationService {
       android: androidSettings,
       iOS: iosSettings,
     );
-    await _plugin.initialize(settings);
+    await _plugin.initialize(settings: settings);
   }
 
   Future<void> scheduleNotification({
@@ -42,20 +42,18 @@ class NotificationService {
     final details = NotificationDetails(android: androidDetails, iOS: iosDetails);
 
     await _plugin.zonedSchedule(
-      id,
-      title,
-      body,
-      scheduledDate,
-      details,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
+      id: id,
+      title: title,
+      body: body,
+      scheduledDate: scheduledDate,
+      notificationDetails: details,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       matchDateTimeComponents: matchDateTimeComponents,
     );
   }
 
   Future<void> cancelNotification(int id) async {
-    await _plugin.cancel(id);
+    await _plugin.cancel(id: id);
   }
 
   Future<void> cancelAll() async {

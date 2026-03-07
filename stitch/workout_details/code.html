@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workout Details - BeYou</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Hero Section with Background Image -->
+<div class="fixed top-0 left-0 w-full h-[60vh] z-0">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A peaceful person practicing yoga in a bright studio" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvjaWs5HC7Ap5L1fbL6YSS37cRm14Nnxsow6Aap1S6yVLsaVcnKMdz2T1GgWuDbuOwL0bGBD0Wt-QKDvk_PK5A_l0IIGogwzKuKJVfI_4ec2_d1JI2wQrvEEp6vPux7jaI-X0YE1w3eWnz86X57Wy0_8zAC9HQQrjylsqSVeSMzkNoYDN8yx2ynTXEP6El-RMRH5Pu1pz-V77g_SJGqN_VIvPZOB2iFlIAYwvUG0lf8AQb4QzfhIDgUflulM3-l-_31_r2CmY0C8g');"></div>
+<div class="absolute inset-0 bg-black/20"></div>
+<!-- Top App Bar / Back Button -->
+<div class="relative z-10 p-6">
+<button class="flex items-center justify-center size-12 rounded-full bg-background-light/20 backdrop-blur-md text-white border border-white/20">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+</div>
+</div>
+<!-- Sliding Up Panel (Simulated) -->
+<div class="relative z-20 mt-[40vh] min-h-[60vh] bg-background-light dark:bg-background-dark rounded-t-[50px] shadow-2xl flex flex-col pb-10">
+<!-- Drag Handle -->
+<div class="w-full flex justify-center py-4">
+<div class="w-12 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+</div>
+<!-- Panel Content Header -->
+<div class="px-6 pt-2 pb-6">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Yoga Workout</h1>
+<!-- Tags Row -->
+<div class="flex gap-3">
+<div class="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/5">
+<span class="material-symbols-outlined text-primary text-xl">schedule</span>
+<p class="text-primary font-semibold text-sm">60 min</p>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/5">
+<span class="material-symbols-outlined text-primary text-xl">exercise</span>
+<p class="text-primary font-semibold text-sm">12 Exercises</p>
+</div>
+</div>
+</div>
+<!-- Exercises List -->
+<div class="flex flex-col gap-4 px-6">
+<!-- ExerciseCell 1 -->
+<div class="flex items-center bg-white dark:bg-slate-800/50 p-3 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="w-[75px] h-[70px] rounded-lg overflow-hidden shrink-0">
+<img alt="Reclining to big toe pose" class="w-full h-full object-cover" data-alt="Person performing reclining big toe yoga pose" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlZBLanyqm8G9ZkIX7DH2SNXqy0IoUTe_axeqpfZQYsJ36ziaRXSXm6hDA6izQF5M0jHNKEJ3KDeVLjMLV_GQt-iU_oOvB6u2eYVZvYn6LdaF8Owdz6ZyixnHInTO3jx9azEhsZEuO9usRZ1C2nrHpzqwl_t1lWwDd8acpOPLX96k9Yz_P0C8wYgocSjwvJNJX7sISb5PlRMINHnJ-D_q6SZapp0ky_Z5zN8-0ZD1gpZ7jAHD-58SteyxOU7oQqGPekcrJxsfUjqQ"/>
+</div>
+<div class="flex-1 px-4 flex flex-col gap-1">
+<h4 class="font-bold text-slate-900 dark:text-white truncate">Reclining to big toe</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">12 min</p>
+<div class="w-full bg-primary/10 h-1.5 rounded-full mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<div class="shrink-0 text-slate-400">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- ExerciseCell 2 -->
+<div class="flex items-center bg-white dark:bg-slate-800/50 p-3 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="w-[75px] h-[70px] rounded-lg overflow-hidden shrink-0">
+<img alt="Cow Pose" class="w-full h-full object-cover" data-alt="Person in cow pose yoga stretch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCs004lCiSIlDAeYsI_ut8HsrUSDxrMRlewXe-ZeYZ9z8IZPfMniMrQZRBtkXVpU4hBRNt3KLfL0HnLgDzudpjDVZaLFsQGFNdhv88Z4vlpYXWy8KqcY6SqtGf7Vp01NO0xDRZnT8vvqiYNoi2VhVbXlAtMo95gk5Cb2KDgHcAv9F6rileLeQoMGYE7UBTJNDR3A02BFDorEutp_AuIMxSatMxO1d11TyAkTId79f3I9sHU4S4SmrPuuoQYB1O8sZbfYsYLKT5DDU"/>
+</div>
+<div class="flex-1 px-4 flex flex-col gap-1">
+<h4 class="font-bold text-slate-900 dark:text-white truncate">Cow Pose</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">8 min</p>
+<div class="w-full bg-primary/10 h-1.5 rounded-full mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 20%;"></div>
+</div>
+</div>
+<div class="shrink-0 text-slate-400">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- ExerciseCell 3 -->
+<div class="flex items-center bg-white dark:bg-slate-800/50 p-3 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="w-[75px] h-[70px] rounded-lg overflow-hidden shrink-0">
+<img alt="Warrior II Pose" class="w-full h-full object-cover" data-alt="Person performing Warrior II yoga pose" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8Uv8LXsQOhxMIMVdXi_PUhj65NW5osF9hCHHMNvqkdA_eGC6mst1IZTqUiy5St_alvfnTJ4colKgrzOgdzl_wq8XBP1JaC7mI9--8tNDE9mbCVn6O9MCE8rHSSOwd2XiKPa0LYtA39Ju0GRa6e_Scu3ANQPa7dSEmtJsPUkHoTTLpk96NL5nCXN9x-PNbb5v9mRPAftMPWccIOQU578LH0t8xmMdjpHcob61ISuQl4HF3kmXN3KSo9tNwnrbsfkc_2l-7Parmf0c"/>
+</div>
+<div class="flex-1 px-4 flex flex-col gap-1">
+<h4 class="font-bold text-slate-900 dark:text-white truncate">Warrior II Pose</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">12 min</p>
+<div class="w-full bg-primary/10 h-1.5 rounded-full mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 0%;"></div>
+</div>
+</div>
+<div class="shrink-0 text-slate-400">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">play_circle</span>
+                        START WORKOUT
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

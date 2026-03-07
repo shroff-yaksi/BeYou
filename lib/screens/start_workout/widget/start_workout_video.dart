@@ -13,7 +13,7 @@ class StartWorkoutVideo extends StatefulWidget {
   final Function(int) onPlayTapped;
   final Function(int) onPauseTapped;
 
-  StartWorkoutVideo({
+  const StartWorkoutVideo({super.key, 
     required this.exercise,
     required this.onPlayTapped,
     required this.onPauseTapped,

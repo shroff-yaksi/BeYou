@@ -5,7 +5,7 @@ import 'package:beyou/screens/workouts/widget/workout_card.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutContent extends StatelessWidget {
-  WorkoutContent({Key? key}) : super(key: key);
+  const WorkoutContent({super.key});
 
   @override
   Widget build(BuildContext context) {

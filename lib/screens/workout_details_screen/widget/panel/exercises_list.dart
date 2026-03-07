@@ -11,7 +11,7 @@ class ExercisesList extends StatelessWidget {
   final WorkoutData workout;
   final List<ExerciseData> exercises;
 
-  const ExercisesList({required this.exercises, required this.workout});
+  const ExercisesList({super.key, required this.exercises, required this.workout});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class ExerciseCell extends StatelessWidget {
   final ExerciseData currentExercise;
   final ExerciseData? nextExercise;
 
-  const ExerciseCell({
+  const ExerciseCell({super.key, 
     required this.currentExercise,
     required this.workout,
     required this.nextExercise,

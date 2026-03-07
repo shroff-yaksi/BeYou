@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
-  ChangePasswordScreen({Key? key}) : super(key: key);
+  const ChangePasswordScreen({super.key});
 
   @override
   _ChangePasswordScreenState createState() => _ChangePasswordScreenState();
@@ -76,7 +76,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   }
 
   Widget _editAccountContent(BuildContext context) {
-    ChangePasswordBloc _bloc = BlocProvider.of<ChangePasswordBloc>(context);
+    ChangePasswordBloc bloc = BlocProvider.of<ChangePasswordBloc>(context);
     double height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: SingleChildScrollView(
@@ -116,7 +116,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     isConfirmPassInvalid = _newPassController.text != _confirmPassController.text;
                   });
                   if (!(isNewPassInvalid || isConfirmPassInvalid)) {
-                    _bloc.add(ChangePassword(newPass: _newPassController.text));
+                    bloc.add(ChangePassword(newPass: _newPassController.text));
                   }
                 },
               ),

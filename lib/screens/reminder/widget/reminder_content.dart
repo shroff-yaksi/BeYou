@@ -3,11 +3,10 @@ import 'package:beyou/core/constants/data_constants.dart';
 import 'package:beyou/core/constants/text_constants.dart';
 import 'package:beyou/screens/reminder/bloc/reminder_bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ReminderContent extends StatelessWidget {
-  const ReminderContent({Key? key}) : super(key: key);
+  const ReminderContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +52,7 @@ class ReminderContent extends StatelessWidget {
 
   Widget _createTimePicker(BuildContext context) {
     final bloc = BlocProvider.of<ReminderBloc>(context);
-    return Container(
+    return SizedBox(
       height: 250,
       child: CupertinoDatePicker(
         mode: CupertinoDatePickerMode.time,
@@ -100,7 +99,7 @@ class RepeatingDay extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onTap;
 
-  RepeatingDay({
+  const RepeatingDay({super.key, 
     required this.title,
     required this.isSelected,
     required this.onTap,
