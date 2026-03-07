@@ -43,3 +43,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# FVM Version Cache
+.fvm/android/app/keystore.jks
+android/app/google-services.json
+keystore_base64.txt
