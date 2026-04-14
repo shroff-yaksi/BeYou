@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:beyou/data/workout_data.dart';
 import 'package:beyou/data/exercise_data.dart';
 import 'package:beyou/core/utils/validation_service.dart';
-import 'package:beyou/core/service/date_service.dart';
+import 'package:beyou/core/utils/date_service.dart';
 
 void main() {
   group('ValidationService', () {

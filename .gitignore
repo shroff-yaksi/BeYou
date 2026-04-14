@@ -52,6 +52,7 @@ keystore_base64.txt
 
 # Claude Code AI workspace
 .claude/
+.agents
 
 # UI/UX Design System (generated, local only)
 design-system/
