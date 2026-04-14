@@ -8,3 +8,5 @@ class OnTextChangedEvent extends SignupEvent {}
 class SignUpTappedEvent extends SignupEvent {}
 
 class SignInTappedEvent extends SignupEvent {}
+
+class GoogleSignInTappedEvent extends SignupEvent {}

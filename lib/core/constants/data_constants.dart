@@ -222,6 +222,23 @@ class DataConstants {
             steps: [TextConstants.warriorStep1, TextConstants.warriorStep2],
           ),
         ]),
+    WorkoutData(
+        title: TextConstants.eveningFlowTitle,
+        exercices: TextConstants.eveningFlowExercises,
+        minutes: TextConstants.eveningFlowMinutes,
+        currentProgress: 0,
+        progress: 8,
+        image: PathConstants.yoga,
+        exerciseDataList: [
+          ExerciseData(
+            title: TextConstants.reclining,
+            minutes: TextConstants.recliningMinutes,
+            progress: 0.0,
+            video: PathConstants.recliningVideo,
+            description: TextConstants.warriorDescription,
+            steps: [TextConstants.warriorStep1, TextConstants.warriorStep2],
+          ),
+        ]),
   ];
 
   // Reminder

@@ -49,3 +49,26 @@ keystore_base64.txt
 
 # FVM Version Cache
 .fvm/
+
+# Claude Code AI workspace
+.claude/
+
+# UI/UX Design System (generated, local only)
+design-system/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# iOS Pods (generated)
+ios/Pods/
+ios/.symlinks/
+
+# macOS Pods (generated)
+macos/Pods/
+
+# Sensitive / credentials
+*.env
+*.env.*
+google-services.json
+GoogleService-Info.plist

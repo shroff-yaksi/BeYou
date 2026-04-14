@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:beyou/core/router/route_names.dart';
+import 'package:beyou/core/service/go_router_refresh_stream.dart';
 import 'package:beyou/data/workout_data.dart';
 import 'package:beyou/features/onboarding/pages/onboarding_page.dart';
 import 'package:beyou/screens/tab_bar/page/tab_bar_page.dart';
@@ -13,13 +15,37 @@ import 'package:beyou/screens/change_password/change_password_page.dart';
 import 'package:beyou/screens/reminder/page/reminder_page.dart';
 import 'package:beyou/screens/workout_details_screen/page/workout_details_page.dart';
 
+/// Public routes — accessible without authentication
+const _publicRoutes = [
+  RouteNames.onboarding,
+  RouteNames.signIn,
+  RouteNames.signUp,
+  RouteNames.forgotPassword,
+];
+
 /// GoRouter configuration for app navigation
 class AppRouter {
   AppRouter._(); // Private constructor
 
   static final GoRouter router = GoRouter(
     initialLocation: RouteNames.onboarding,
-    debugLogDiagnostics: true,
+    debugLogDiagnostics: false,
+    refreshListenable: GoRouterRefreshStream(
+      FirebaseAuth.instance.authStateChanges(),
+    ),
+    redirect: (BuildContext context, GoRouterState state) {
+      final loggedIn = FirebaseAuth.instance.currentUser != null;
+      final location = state.matchedLocation;
+      final isPublic = _publicRoutes.contains(location);
+
+      // Not logged in and trying to access a protected route → sign in
+      if (!loggedIn && !isPublic) return RouteNames.signIn;
+
+      // Logged in but on a public route → home
+      if (loggedIn && isPublic) return RouteNames.home;
+
+      return null; // no redirect
+    },
     routes: [
       // Home/Tab Bar (Main Screen)
       GoRoute(

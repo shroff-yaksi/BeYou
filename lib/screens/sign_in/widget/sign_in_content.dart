@@ -55,6 +55,8 @@ class SignInContent extends StatelessWidget {
               _createForgotPasswordButton(context),
               const SizedBox(height: 40),
               _createSignInButton(context),
+              const SizedBox(height: 16),
+              _createGoogleSignInButton(context),
               Spacer(),
               _createDoNotHaveAccountText(context),
               const SizedBox(height: 30),
@@ -156,6 +158,27 @@ class SignInContent extends StatelessWidget {
               bloc.add(SignInTappedEvent());
             },
           );
+        },
+      ),
+    );
+  }
+
+  Widget _createGoogleSignInButton(BuildContext context) {
+    final bloc = BlocProvider.of<SignInBloc>(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: OutlinedButton.icon(
+        icon: Image.asset('assets/icons/social_networks/google.png', width: 20, height: 20, errorBuilder: (_, __, ___) => const Icon(Icons.login, size: 20)),
+        label: const Text('Continue with Google'),
+        style: OutlinedButton.styleFrom(
+          minimumSize: const Size(double.infinity, 52),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          side: BorderSide(color: Colors.grey.shade300),
+          foregroundColor: ColorConstants.textBlack,
+        ),
+        onPressed: () {
+          FocusScope.of(context).unfocus();
+          bloc.add(GoogleSignInTappedEvent());
         },
       ),
     );

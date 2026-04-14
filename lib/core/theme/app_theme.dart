@@ -10,6 +10,15 @@ class AppTheme {
     return ThemeData(
       primaryColor: ColorConstants.primaryColor,
       scaffoldBackgroundColor: ColorConstants.white,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: ColorConstants.primaryColor,
+        primary: ColorConstants.primaryColor,
+        onPrimary: ColorConstants.white,
+        secondary: ColorConstants.primaryColor,
+        surface: ColorConstants.white,
+        onSurface: ColorConstants.textBlack,
+        error: ColorConstants.errorColor,
+      ),
       
       // AppBar theme
       appBarTheme: const AppBarTheme(

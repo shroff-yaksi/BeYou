@@ -9,3 +9,5 @@ class SignInTappedEvent extends SignInEvent {}
 class SignUpTappedEvent extends SignInEvent {}
 
 class ForgotPasswordTappedEvent extends SignInEvent {}
+
+class GoogleSignInTappedEvent extends SignInEvent {}

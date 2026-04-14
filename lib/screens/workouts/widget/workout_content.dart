@@ -13,40 +13,56 @@ class WorkoutContent extends StatelessWidget {
       color: ColorConstants.homeBackgroundColor,
       height: double.infinity,
       width: double.infinity,
-      child: _createHomeBody(context),
+      child: _createBody(context),
     );
   }
 
-  Widget _createHomeBody(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 50),
+  Widget _createBody(BuildContext context) {
+    return SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Text('Workouts',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
+            child: Row(
+              children: [
+                const Expanded(
+                  child: Text(
+                    'Workouts',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: ColorConstants.white,
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: ColorConstants.textBlack.withValues(alpha: 0.08),
+                        blurRadius: 4,
+                        spreadRadius: 0.5,
+                      ),
+                    ],
+                  ),
+                  child: const Icon(Icons.search, color: ColorConstants.textBlack, size: 20),
+                ),
+              ],
+            ),
           ),
-          const SizedBox(height: 5),
           Expanded(
-            child: ListView(
-              children: DataConstants.workouts
-                  .map(
-                    (e) => _createWorkoutCard(e),
-                  )
-                  .toList(),
+            child: ListView.separated(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              itemCount: DataConstants.workouts.length,
+              separatorBuilder: (_, __) => const SizedBox(height: 12),
+              itemBuilder: (context, index) {
+                return WorkoutCard(workout: DataConstants.workouts[index]);
+              },
             ),
           ),
         ],
       ),
-    );
-  }
-
-  Widget _createWorkoutCard(WorkoutData workoutData) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: WorkoutCard(workout: workoutData),
     );
   }
 }

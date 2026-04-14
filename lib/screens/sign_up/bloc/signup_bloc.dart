@@ -11,6 +11,7 @@ class SignUpBloc extends Bloc<SignupEvent, SignUpState> {
     on<OnTextChangedEvent>(_onTextChanged);
     on<SignUpTappedEvent>(_onSignUpTapped);
     on<SignInTappedEvent>(_onSignInTapped);
+    on<GoogleSignInTappedEvent>(_onGoogleSignInTapped);
   }
 
   final userNameController = TextEditingController();
@@ -43,6 +44,20 @@ class SignUpBloc extends Bloc<SignupEvent, SignUpState> {
 
   void _onSignInTapped(SignInTappedEvent event, Emitter<SignUpState> emit) {
     emit(NextSignInPageState());
+  }
+
+  Future<void> _onGoogleSignInTapped(GoogleSignInTappedEvent event, Emitter<SignUpState> emit) async {
+    try {
+      emit(LoadingState());
+      final user = await AuthService.signInWithGoogle();
+      if (user != null) {
+        emit(NextTabBarPageState());
+      } else {
+        emit(SignupInitial()); // user cancelled
+      }
+    } catch (e) {
+      emit(ErrorState(message: e.toString()));
+    }
   }
 
   bool checkIfSignUpButtonEnabled() {

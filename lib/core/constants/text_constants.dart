@@ -72,6 +72,11 @@ class TextConstants {
   static const String armsExercises = "6";
   static const String armsMinutes = "35";
 
+  // Home screen -> evening flow card
+  static const String eveningFlowTitle = "Evening Flow";
+  static const String eveningFlowExercises = "8";
+  static const String eveningFlowMinutes = "30";
+
   //Workout screen -> yoga card
   static const String yogaTitle = "Yoga";
   static const String yogaExercises = "16";

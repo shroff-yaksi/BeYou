@@ -20,4 +20,9 @@ class ColorConstants {
 
   static const cardioColor = Color(0xFFFCB74F);
   static const armsColor = Color(0xFF5C9BA4);
+  static const eveningFlowColor = Color(0xFF6358E1);
+
+  static const vataColor = Color(0xFF6C63FF);
+  static const pittaColor = Color(0xFFFF7043);
+  static const kaphaColor = Color(0xFF4CAF50);
 }

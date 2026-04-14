@@ -1,6 +1,4 @@
 import 'package:beyou/core/constants/color_constants.dart';
-import 'package:beyou/core/constants/path_constants.dart';
-import 'package:beyou/core/constants/text_constants.dart';
 import 'package:flutter/material.dart';
 
 class HomeStatistics extends StatelessWidget {
@@ -11,57 +9,70 @@ class HomeStatistics extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _createComletedWorkouts(context),
-          _createColumnStatistics(),
+          Expanded(child: _buildCompletedWorkouts()),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              children: [
+                _buildStatCard(
+                  icon: Icons.pending_actions,
+                  title: 'In Progress',
+                  value: '4',
+                  unit: 'workouts',
+                ),
+                const SizedBox(height: 12),
+                _buildStatCard(
+                  icon: Icons.schedule,
+                  title: 'Time Spent',
+                  value: '5.5h',
+                  unit: 'this week',
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Widget _createComletedWorkouts(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+  Widget _buildCompletedWorkouts() {
     return Container(
       padding: const EdgeInsets.all(15),
-      height: 200,
-      width: screenWidth * 0.35,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: ColorConstants.white,
         boxShadow: [
           BoxShadow(
-            color: ColorConstants.textBlack.withOpacity(0.12),
+            color: ColorConstants.textBlack.withValues(alpha: 0.12),
             blurRadius: 5.0,
             spreadRadius: 1.1,
           ),
         ],
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Image(
-                image: AssetImage(
-                  PathConstants.finished,
-                ),
-              ),
-              const SizedBox(width: 10),
+              Icon(Icons.workspace_premium, color: ColorConstants.primaryColor, size: 20),
+              const SizedBox(width: 6),
               Expanded(
                 child: Text(
-                  TextConstants.finished,
+                  'Completed Workouts',
                   style: TextStyle(
-                    color: ColorConstants.textBlack,
-                    fontSize: 18,
+                    color: ColorConstants.textGrey,
+                    fontSize: 12,
                     fontWeight: FontWeight.w500,
                   ),
-                  overflow: TextOverflow.fade,
-                  softWrap: false,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
                 ),
               ),
             ],
           ),
+          const SizedBox(height: 12),
           Text(
             '12',
             style: TextStyle(
@@ -70,13 +81,20 @@ class HomeStatistics extends StatelessWidget {
               color: ColorConstants.textBlack,
             ),
           ),
-          Text(
-            TextConstants.completedWorkouts,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: ColorConstants.textGrey,
+          const SizedBox(height: 6),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+            decoration: BoxDecoration(
+              color: ColorConstants.primaryColor.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Text(
+              '+3 from last week',
+              style: TextStyle(
+                color: ColorConstants.primaryColor,
+                fontSize: 11,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ],
@@ -84,91 +102,64 @@ class HomeStatistics extends StatelessWidget {
     );
   }
 
-  Widget _createColumnStatistics() {
-    return Column(
-      children: [
-        DataWorkouts(
-          icon: PathConstants.inProgress,
-          title: TextConstants.inProgress,
-          count: 2,
-          text: TextConstants.workouts,
-        ),
-        const SizedBox(height: 20),
-        DataWorkouts(
-          icon: PathConstants.timeSent,
-          title: TextConstants.timeSent,
-          count: 62,
-          text: TextConstants.minutes,
-        ),
-      ],
-    );
-  }
-}
-
-class DataWorkouts extends StatelessWidget {
-  final String icon;
-  final String title;
-  final int count;
-  final String text;
-
-  const DataWorkouts({super.key, 
-    required this.icon,
-    required this.title,
-    required this.count,
-    required this.text,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+  Widget _buildStatCard({
+    required IconData icon,
+    required String title,
+    required String value,
+    required String unit,
+  }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      height: 90,
-      width: screenWidth * 0.5,
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: ColorConstants.white,
         boxShadow: [
           BoxShadow(
-            color: ColorConstants.textBlack.withOpacity(0.12),
+            color: ColorConstants.textBlack.withValues(alpha: 0.12),
             blurRadius: 5.0,
             spreadRadius: 1.1,
           ),
         ],
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Image(image: AssetImage(icon)),
-              const SizedBox(width: 10),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.textBlack,
+              Icon(icon, color: ColorConstants.primaryColor, size: 18),
+              const SizedBox(width: 6),
+              Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.textGrey,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ],
           ),
+          const SizedBox(height: 8),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            textBaseline: TextBaseline.alphabetic,
             children: [
               Text(
-                count.toString(),
+                value,
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
                   color: ColorConstants.textBlack,
                 ),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 4),
               Text(
-                text,
+                unit,
                 style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
                   color: ColorConstants.grey,
                 ),
               ),

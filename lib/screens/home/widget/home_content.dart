@@ -13,9 +13,7 @@ import 'package:go_router/go_router.dart';
 import 'home_exercises_card.dart';
 
 class HomeContent extends StatelessWidget {
-  const HomeContent({
-    super.key,
-  });
+  const HomeContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,53 +31,148 @@ class HomeContent extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 20),
         children: [
           _createProfileData(context),
-          const SizedBox(height: 35),
+          const SizedBox(height: 24),
           HomeStatistics(),
-          const SizedBox(height: 30),
+          const SizedBox(height: 28),
           _createExercisesList(context),
-          const SizedBox(height: 25),
+          const SizedBox(height: 24),
           _createProgress(),
+          const SizedBox(height: 20),
         ],
       ),
     );
   }
 
   Widget _createExercisesList(BuildContext context) {
+    final cardColors = [
+      ColorConstants.cardioColor,
+      ColorConstants.armsColor,
+      ColorConstants.eveningFlowColor,
+    ];
+    final cardSubtitles = ['Intermediate', 'Beginner', 'Relaxation'];
+    final cardKcals = ['300 kcal', '150 kcal', '80 kcal'];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Text(
-            TextConstants.discoverWorkouts,
-            style: TextStyle(
-              color: ColorConstants.textBlack,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                TextConstants.discoverWorkouts,
+                style: TextStyle(
+                  color: ColorConstants.textBlack,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Text(
+                  'View all',
+                  style: TextStyle(
+                    color: ColorConstants.primaryColor,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         const SizedBox(height: 15),
         SizedBox(
-          height: 160,
-          child: ListView(
+          height: 170,
+          child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            children: [
-              const SizedBox(width: 20),
-              WorkoutCard(
-                  color: ColorConstants.cardioColor,
-                  workout: DataConstants.homeWorkouts[0],
-                  onTap: () => context.push(RouteNames.workoutDetails, extra: DataConstants.workouts[0])),
-              const SizedBox(width: 15),
-              WorkoutCard(
-                  color: ColorConstants.armsColor,
-                  workout: DataConstants.homeWorkouts[1],
-                  onTap: () => context.push(RouteNames.workoutDetails, extra: DataConstants.workouts[2])),
-              const SizedBox(width: 20),
-            ],
+            itemCount: DataConstants.homeWorkouts.length,
+            padding: const EdgeInsets.only(left: 20),
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.only(right: index == DataConstants.homeWorkouts.length - 1 ? 20 : 15),
+                child: _buildWorkoutCard(
+                  context: context,
+                  color: cardColors[index % cardColors.length],
+                  workout: DataConstants.homeWorkouts[index],
+                  subtitle: cardSubtitles[index % cardSubtitles.length],
+                  kcal: cardKcals[index % cardKcals.length],
+                  onTap: () => context.push(
+                    RouteNames.workoutDetails,
+                    extra: DataConstants.workouts[index % DataConstants.workouts.length],
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildWorkoutCard({
+    required BuildContext context,
+    required Color color,
+    required workout,
+    required String subtitle,
+    required String kcal,
+    required VoidCallback onTap,
+  }) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: screenWidth * 0.58,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: color,
+        ),
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.25),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                subtitle,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 11,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            const Spacer(),
+            Text(
+              workout.title,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 6),
+            Row(
+              children: [
+                const Icon(Icons.timer, color: Colors.white70, size: 14),
+                const SizedBox(width: 4),
+                Text(
+                  '${workout.minutes} mins • $kcal',
+                  style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -92,7 +185,7 @@ class HomeContent extends StatelessWidget {
     } catch (_) {
       // Firebase not initialized, use defaults
     }
-    
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
@@ -102,39 +195,78 @@ class HomeContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Hi, $displayName',
+                'Welcome back,',
                 style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: ColorConstants.textGrey,
                 ),
               ),
               const SizedBox(height: 2),
               Text(
-                TextConstants.checkActivity,
+                'Hi, $displayName',
                 style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: ColorConstants.textBlack,
                 ),
               ),
             ],
           ),
-          BlocBuilder<HomeBloc, HomeState>(
-            buildWhen: (_, currState) => currState is ReloadImageState,
-            builder: (context, state) {
-              return GestureDetector(
-                child: CircleAvatar(
-                    backgroundImage: AssetImage(PathConstants.profile),
-                    radius: 60),
-                onTap: () async {
-                  await context.push(RouteNames.editAccount);
-                  if (context.mounted) {
-                    BlocProvider.of<HomeBloc>(context).add(ReloadImageEvent());
-                  }
+          Row(
+            children: [
+              _buildIconButton(
+                icon: Icons.search,
+                onTap: () {},
+              ),
+              const SizedBox(width: 8),
+              _buildIconButton(
+                icon: Icons.notifications_outlined,
+                onTap: () {},
+              ),
+              const SizedBox(width: 8),
+              BlocBuilder<HomeBloc, HomeState>(
+                buildWhen: (_, currState) => currState is ReloadImageState,
+                builder: (context, state) {
+                  return GestureDetector(
+                    onTap: () async {
+                      await context.push(RouteNames.editAccount);
+                      if (context.mounted) {
+                        BlocProvider.of<HomeBloc>(context).add(ReloadImageEvent());
+                      }
+                    },
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage(PathConstants.profile),
+                      radius: 20,
+                    ),
+                  );
                 },
-              );
-            },
+              ),
+            ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildIconButton({required IconData icon, required VoidCallback onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 40,
+        height: 40,
+        decoration: BoxDecoration(
+          color: ColorConstants.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: ColorConstants.textBlack.withValues(alpha: 0.08),
+              blurRadius: 4,
+              spreadRadius: 0.5,
+            ),
+          ],
+        ),
+        child: Icon(icon, color: ColorConstants.textBlack, size: 20),
       ),
     );
   }
@@ -143,48 +275,74 @@ class HomeContent extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 20),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
         color: ColorConstants.white,
         boxShadow: [
           BoxShadow(
-            color: ColorConstants.textBlack.withOpacity(0.12),
+            color: ColorConstants.textBlack.withValues(alpha: 0.12),
             blurRadius: 5.0,
             spreadRadius: 1.1,
           ),
         ],
       ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image(
-            image: AssetImage(
-              PathConstants.progress,
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      TextConstants.keepProgress,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: ColorConstants.textBlack,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      "You're 80% through your weekly goal.",
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: ColorConstants.textGrey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 12),
+              Icon(Icons.trending_up, color: ColorConstants.primaryColor, size: 28),
+            ],
+          ),
+          const SizedBox(height: 14),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: LinearProgressIndicator(
+              value: 4 / 5,
+              backgroundColor: ColorConstants.disabledColor,
+              color: ColorConstants.primaryColor,
+              minHeight: 8,
             ),
           ),
-          SizedBox(width: 20),
-          Flexible(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  TextConstants.keepProgress,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+          const SizedBox(height: 8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '4/5 days',
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: ColorConstants.textBlack,
                 ),
-                const SizedBox(height: 3),
-                Text(
-                  TextConstants.profileSuccessful,
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                ),
-              ],
-            ),
+              ),
+              Icon(Icons.fitness_center, color: ColorConstants.grey, size: 16),
+            ],
           ),
         ],
       ),

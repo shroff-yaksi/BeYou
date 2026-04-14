@@ -12,6 +12,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     on<SignInTappedEvent>(_onSignInTapped);
     on<ForgotPasswordTappedEvent>(_onForgotPasswordTapped);
     on<SignUpTappedEvent>(_onSignUpTapped);
+    on<GoogleSignInTappedEvent>(_onGoogleSignInTapped);
   }
 
   final emailController = TextEditingController();
@@ -46,6 +47,20 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
 
   void _onSignUpTapped(SignUpTappedEvent event, Emitter<SignInState> emit) {
     emit(NextSignUpPageState());
+  }
+
+  Future<void> _onGoogleSignInTapped(GoogleSignInTappedEvent event, Emitter<SignInState> emit) async {
+    try {
+      emit(LoadingState());
+      final user = await AuthService.signInWithGoogle();
+      if (user != null) {
+        emit(NextTabBarPageState());
+      } else {
+        emit(SignInInitial()); // user cancelled
+      }
+    } catch (e) {
+      emit(ErrorState(message: e.toString()));
+    }
   }
 
   bool _checkIfSignInButtonEnabled() {
