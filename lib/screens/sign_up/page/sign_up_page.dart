@@ -20,7 +20,7 @@ class SignUpPage extends StatelessWidget {
         listenWhen: (_, currState) => currState is NextTabBarPageState || currState is NextSignInPageState || currState is ErrorState,
         listener: (context, state) {
           if (state is NextTabBarPageState) {
-            context.go(RouteNames.home);
+            context.go(RouteNames.goalSelection);
           } else if (state is NextSignInPageState) {
             context.go(RouteNames.signIn);
           } else if (state is ErrorState) {

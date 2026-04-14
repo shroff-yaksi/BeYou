@@ -25,4 +25,7 @@ class RouteNames {
 
   // Reminder
   static const String reminder = '/reminder';
+
+  // Onboarding goals (post sign-up)
+  static const String goalSelection = '/goals';
 }

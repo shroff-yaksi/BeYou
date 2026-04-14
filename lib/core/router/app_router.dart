@@ -5,6 +5,7 @@ import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/core/service/go_router_refresh_stream.dart';
 import 'package:beyou/data/workout_data.dart';
 import 'package:beyou/features/onboarding/pages/onboarding_page.dart';
+import 'package:beyou/features/onboarding/pages/goal_selection_page.dart';
 import 'package:beyou/screens/tab_bar/page/tab_bar_page.dart';
 import 'package:beyou/screens/sign_in/page/sign_in_page.dart';
 import 'package:beyou/screens/sign_up/page/sign_up_page.dart';
@@ -21,6 +22,7 @@ const _publicRoutes = [
   RouteNames.signIn,
   RouteNames.signUp,
   RouteNames.forgotPassword,
+  RouteNames.goalSelection,
 ];
 
 /// GoRouter configuration for app navigation
@@ -116,6 +118,16 @@ class AppRouter {
         pageBuilder: (context, state) => MaterialPage(
           key: state.pageKey,
           child: ChangePasswordScreen(),
+        ),
+      ),
+
+      // Goal Selection (post sign-up onboarding)
+      GoRoute(
+        path: RouteNames.goalSelection,
+        name: 'goalSelection',
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: const GoalSelectionPage(),
         ),
       ),
 

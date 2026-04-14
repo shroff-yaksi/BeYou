@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:beyou/core/constants/color_constants.dart';
 import 'package:beyou/core/constants/data_constants.dart';
-import 'package:beyou/core/constants/path_constants.dart';
 import 'package:beyou/core/constants/text_constants.dart';
 import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/screens/home/bloc/home_bloc.dart';
@@ -177,14 +176,9 @@ class HomeContent extends StatelessWidget {
   }
 
   Widget _createProfileData(BuildContext context) {
-    String displayName = "User";
-
-    try {
-      final user = FirebaseAuth.instance.currentUser;
-      displayName = user?.displayName ?? "User";
-    } catch (_) {
-      // Firebase not initialized, use defaults
-    }
+    final user = FirebaseAuth.instance.currentUser;
+    final displayName = user?.displayName ?? 'User';
+    final photoUrl = user?.photoURL;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -236,8 +230,23 @@ class HomeContent extends StatelessWidget {
                       }
                     },
                     child: CircleAvatar(
-                      backgroundImage: AssetImage(PathConstants.profile),
                       radius: 20,
+                      backgroundColor: ColorConstants.primaryColor.withValues(alpha: 0.15),
+                      backgroundImage: photoUrl != null
+                          ? NetworkImage(photoUrl)
+                          : null,
+                      child: photoUrl == null
+                          ? Text(
+                              displayName.isNotEmpty
+                                  ? displayName[0].toUpperCase()
+                                  : 'U',
+                              style: TextStyle(
+                                color: ColorConstants.primaryColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            )
+                          : null,
                     ),
                   );
                 },

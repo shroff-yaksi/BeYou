@@ -40,6 +40,13 @@ class UserService {
   static Future<bool> editPhoto(String photoUrl) async {
     try {
       await firebase.currentUser?.updatePhotoURL(photoUrl);
+      final uid = firebase.currentUser?.uid;
+      if (uid != null) {
+        await _db.collection('users').doc(uid).update({
+          'photoUrl': photoUrl,
+          'updatedAt': FieldValue.serverTimestamp(),
+        });
+      }
       return true;
     } catch (_) {
       return false;
@@ -51,10 +58,32 @@ class UserService {
     try {
       await firebase.currentUser?.updateDisplayName(displayName);
       await firebase.currentUser?.verifyBeforeUpdateEmail(email);
+      final uid = firebase.currentUser?.uid;
+      if (uid != null) {
+        await _db.collection('users').doc(uid).update({
+          'name': displayName,
+          'email': email,
+          'updatedAt': FieldValue.serverTimestamp(),
+        });
+      }
       return true;
     } catch (e) {
       throw Exception(e);
     }
+  }
+
+  /// Saves user goals and fitness level to Firestore after onboarding.
+  static Future<void> saveGoals({
+    required String uid,
+    required List<String> goals,
+    required String fitnessLevel,
+  }) async {
+    await _db.collection('users').doc(uid).update({
+      'goals': goals,
+      'fitnessLevel': fitnessLevel,
+      'onboardingComplete': true,
+      'updatedAt': FieldValue.serverTimestamp(),
+    });
   }
 
   static Future<bool> changePassword({required String newPass}) async {
