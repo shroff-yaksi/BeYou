@@ -1,9 +1,9 @@
 import 'package:beyou/core/constants/color_constants.dart';
+import 'package:beyou/features/ayurveda/pages/ayurveda_page.dart';
+import 'package:beyou/features/fitness/pages/fitness_page.dart';
 import 'package:beyou/screens/home/page/home_page.dart';
 import 'package:beyou/screens/settings/settings_screen.dart';
 import 'package:beyou/screens/tab_bar/bloc/tab_bar_bloc.dart';
-import 'package:beyou/screens/workouts/page/workouts_page.dart';
-import 'package:beyou/features/dosha/page/dosha_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -62,9 +62,9 @@ class TabBarPage extends StatelessWidget {
             label: 'Workouts',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.self_improvement_outlined),
-            activeIcon: Icon(Icons.self_improvement),
-            label: 'Dosha',
+            icon: Icon(Icons.spa_outlined),
+            activeIcon: Icon(Icons.spa),
+            label: 'Ayurveda',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings_outlined),
@@ -82,8 +82,8 @@ class TabBarPage extends StatelessWidget {
   Widget _createBody(BuildContext context, int index) {
     final children = [
       HomePage(),
-      WorkoutsPage(),
-      const DoshaPage(),
+      const FitnessPage(),
+      const AyurvedaPage(),
       SettingsScreen(),
     ];
     return children[index];

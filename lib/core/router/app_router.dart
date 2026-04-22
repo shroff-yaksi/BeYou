@@ -4,6 +4,14 @@ import 'package:go_router/go_router.dart';
 import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/core/service/go_router_refresh_stream.dart';
 import 'package:beyou/data/workout_data.dart';
+import 'package:beyou/features/fitness/models/exercise.dart';
+import 'package:beyou/features/fitness/models/workout.dart';
+import 'package:beyou/features/fitness/pages/active_workout_page.dart';
+import 'package:beyou/features/fitness/pages/body_metrics_page.dart';
+import 'package:beyou/features/fitness/pages/progress_charts_page.dart';
+import 'package:beyou/features/fitness/pages/workout_builder_page.dart';
+import 'package:beyou/features/fitness/pages/workout_detail_page.dart';
+import 'package:beyou/features/fitness/pages/workout_history_page.dart';
 import 'package:beyou/features/onboarding/pages/onboarding_page.dart';
 import 'package:beyou/features/onboarding/pages/goal_selection_page.dart';
 import 'package:beyou/screens/tab_bar/page/tab_bar_page.dart';
@@ -141,7 +149,7 @@ class AppRouter {
         ),
       ),
 
-      // Workout Details (receives WorkoutData via extra)
+      // Workout Details (receives WorkoutData via extra) — legacy
       GoRoute(
         path: RouteNames.workoutDetails,
         name: 'workoutDetails',
@@ -152,6 +160,64 @@ class AppRouter {
             child: WorkoutDetailsPage(workout: workout),
           );
         },
+      ),
+
+      // ── Fitness Phase 2 Routes ──────────────────────────────────────────
+      GoRoute(
+        path: RouteNames.workoutDetail,
+        name: 'workoutDetail',
+        pageBuilder: (context, state) {
+          final workout = state.extra as Workout;
+          return MaterialPage(
+            key: state.pageKey,
+            child: WorkoutDetailPage(workout: workout),
+          );
+        },
+      ),
+      GoRoute(
+        path: RouteNames.activeWorkout,
+        name: 'activeWorkout',
+        pageBuilder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          final workout = extra['workout'] as Workout;
+          final exercises = extra['exercises'] as Map<String, Exercise>;
+          return MaterialPage(
+            key: state.pageKey,
+            child: ActiveWorkoutPage(workout: workout, exercises: exercises),
+          );
+        },
+      ),
+      GoRoute(
+        path: RouteNames.workoutHistory,
+        name: 'workoutHistory',
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: const WorkoutHistoryPage(),
+        ),
+      ),
+      GoRoute(
+        path: RouteNames.bodyMetrics,
+        name: 'bodyMetrics',
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: const BodyMetricsPage(),
+        ),
+      ),
+      GoRoute(
+        path: RouteNames.progressCharts,
+        name: 'progressCharts',
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: const ProgressChartsPage(),
+        ),
+      ),
+      GoRoute(
+        path: RouteNames.workoutBuilder,
+        name: 'workoutBuilder',
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: const WorkoutBuilderPage(),
+        ),
       ),
     ],
 

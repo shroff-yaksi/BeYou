@@ -21,7 +21,7 @@ class FitnessButton extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(100),
-          onTap: onTap,
+          onTap: isEnabled ? onTap : null,
           child: Center(
             child: Text(
               title,

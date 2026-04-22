@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:beyou/core/utils/exceptions.dart';
 import 'package:beyou/core/service/user_service.dart';
@@ -63,18 +64,24 @@ class AuthService {
 
   /// Signs in with Google. Returns null if the user cancelled.
   static Future<User?> signInWithGoogle() async {
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
-    if (googleUser == null) return null; // user cancelled
-
-    final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-    final OAuthCredential credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
     try {
-      final UserCredential result = await auth.signInWithCredential(credential);
+      UserCredential result;
+      if (kIsWeb) {
+        final provider = GoogleAuthProvider();
+        provider.addScope('email');
+        provider.addScope('profile');
+        result = await auth.signInWithPopup(provider);
+      } else {
+        final GoogleSignIn googleSignIn = GoogleSignIn();
+        final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+        if (googleUser == null) return null; // user cancelled
+        final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+        final OAuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+        result = await auth.signInWithCredential(credential);
+      }
       final User user = result.user!;
       await UserService.createUserDocument(user);
       return user;
@@ -89,12 +96,26 @@ class AuthService {
 String getExceptionMessage(FirebaseAuthException e) {
   switch (e.code) {
     case 'user-not-found':
-      return 'User not found';
+      return 'No account found with this email.';
     case 'wrong-password':
-      return 'Password is incorrect';
+    case 'invalid-credential':
+    case 'INVALID_LOGIN_CREDENTIALS':
+      return 'Incorrect email or password.';
+    case 'invalid-email':
+      return 'Invalid email address.';
+    case 'user-disabled':
+      return 'This account has been disabled.';
+    case 'too-many-requests':
+      return 'Too many failed attempts. Please try again later.';
+    case 'email-already-in-use':
+      return 'An account with this email already exists.';
+    case 'weak-password':
+      return 'Password must be at least 6 characters.';
     case 'requires-recent-login':
-      return 'Log in again before retrying this request';
+      return 'Please sign in again before retrying this request.';
+    case 'network-request-failed':
+      return 'Network error. Check your connection.';
     default:
-      return e.message ?? 'Error';
+      return e.message ?? 'Authentication failed. Please try again.';
   }
 }

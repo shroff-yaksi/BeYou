@@ -1,43 +1,57 @@
 import 'package:beyou/core/constants/color_constants.dart';
+import 'package:beyou/screens/home/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeStatistics extends StatelessWidget {
   const HomeStatistics({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(child: _buildCompletedWorkouts()),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              children: [
-                _buildStatCard(
-                  icon: Icons.pending_actions,
-                  title: 'In Progress',
-                  value: '4',
-                  unit: 'workouts',
+    return BlocBuilder<HomeBloc, HomeState>(
+      buildWhen: (_, s) => s is HomeStatsLoaded,
+      builder: (context, state) {
+        final weeklyWorkouts = state is HomeStatsLoaded ? state.weeklyWorkouts : 0;
+        final totalCompleted = state is HomeStatsLoaded ? state.totalCompleted : 0;
+        final weeklyMinutes = state is HomeStatsLoaded ? state.weeklyMinutes : 0;
+        final hoursStr = weeklyMinutes >= 60
+            ? '${(weeklyMinutes / 60).toStringAsFixed(1)}h'
+            : '${weeklyMinutes}m';
+
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(child: _buildCompletedWorkouts(totalCompleted)),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  children: [
+                    _buildStatCard(
+                      icon: Icons.local_fire_department,
+                      title: 'This Week',
+                      value: '$weeklyWorkouts',
+                      unit: 'workouts',
+                    ),
+                    const SizedBox(height: 12),
+                    _buildStatCard(
+                      icon: Icons.schedule,
+                      title: 'Time Spent',
+                      value: hoursStr,
+                      unit: 'this week',
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 12),
-                _buildStatCard(
-                  icon: Icons.schedule,
-                  title: 'Time Spent',
-                  value: '5.5h',
-                  unit: 'this week',
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
-  Widget _buildCompletedWorkouts() {
+  Widget _buildCompletedWorkouts(int count) {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
@@ -74,8 +88,8 @@ class HomeStatistics extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Text(
-            '12',
-            style: TextStyle(
+            '$count',
+            style: const TextStyle(
               fontSize: 48,
               fontWeight: FontWeight.w700,
               color: ColorConstants.textBlack,
@@ -88,8 +102,8 @@ class HomeStatistics extends StatelessWidget {
               color: ColorConstants.primaryColor.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Text(
-              '+3 from last week',
+            child: const Text(
+              'All time',
               style: TextStyle(
                 color: ColorConstants.primaryColor,
                 fontSize: 11,

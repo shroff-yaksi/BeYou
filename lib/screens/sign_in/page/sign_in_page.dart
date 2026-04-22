@@ -2,6 +2,7 @@ import 'package:beyou/core/router/route_names.dart';
 import 'package:beyou/screens/sign_in/bloc/sign_in_bloc.dart';
 import 'package:beyou/screens/sign_in/widget/sign_in_content.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -34,7 +35,12 @@ class SignInPage extends StatelessWidget {
             context.go(RouteNames.home);
           } else if (state is ErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.message)),
+              SnackBar(
+                content: Text(state.message),
+                backgroundColor: Colors.redAccent,
+                duration: const Duration(seconds: 4),
+                behavior: SnackBarBehavior.floating,
+              ),
             );
           }
         },

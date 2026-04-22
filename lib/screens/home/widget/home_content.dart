@@ -281,80 +281,92 @@ class HomeContent extends StatelessWidget {
   }
 
   Widget _createProgress() {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: ColorConstants.white,
-        boxShadow: [
-          BoxShadow(
-            color: ColorConstants.textBlack.withValues(alpha: 0.12),
-            blurRadius: 5.0,
-            spreadRadius: 1.1,
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      TextConstants.keepProgress,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: ColorConstants.textBlack,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      "You're 80% through your weekly goal.",
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: ColorConstants.textGrey,
-                      ),
-                    ),
-                  ],
-                ),
+    return BlocBuilder<HomeBloc, HomeState>(
+      buildWhen: (_, s) => s is HomeStatsLoaded,
+      builder: (context, state) {
+        const weeklyGoal = 5;
+        final done = state is HomeStatsLoaded ? state.weeklyWorkouts : 0;
+        final progress = (done / weeklyGoal).clamp(0.0, 1.0);
+        final pct = (progress * 100).toInt();
+
+        return Container(
+          width: double.infinity,
+          margin: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: ColorConstants.white,
+            boxShadow: [
+              BoxShadow(
+                color: ColorConstants.textBlack.withValues(alpha: 0.12),
+                blurRadius: 5.0,
+                spreadRadius: 1.1,
               ),
-              const SizedBox(width: 12),
-              Icon(Icons.trending_up, color: ColorConstants.primaryColor, size: 28),
             ],
           ),
-          const SizedBox(height: 14),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: LinearProgressIndicator(
-              value: 4 / 5,
-              backgroundColor: ColorConstants.disabledColor,
-              color: ColorConstants.primaryColor,
-              minHeight: 8,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                '4/5 days',
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                  color: ColorConstants.textBlack,
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          TextConstants.keepProgress,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: ColorConstants.textBlack,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          done == 0
+                              ? 'No workouts yet this week.'
+                              : "You're $pct% through your weekly goal.",
+                          style: const TextStyle(
+                            fontSize: 13,
+                            color: ColorConstants.textGrey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  const Icon(Icons.trending_up, color: ColorConstants.primaryColor, size: 28),
+                ],
+              ),
+              const SizedBox(height: 14),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: LinearProgressIndicator(
+                  value: progress,
+                  backgroundColor: ColorConstants.disabledColor,
+                  color: ColorConstants.primaryColor,
+                  minHeight: 8,
                 ),
               ),
-              Icon(Icons.fitness_center, color: ColorConstants.grey, size: 16),
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '$done/$weeklyGoal workouts',
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      color: ColorConstants.textBlack,
+                    ),
+                  ),
+                  const Icon(Icons.fitness_center, color: ColorConstants.grey, size: 16),
+                ],
+              ),
             ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
