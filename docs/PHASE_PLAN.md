@@ -102,27 +102,31 @@
 
 ---
 
-## Phase 4 — Mindfulness Module
+## Phase 4 — Mindfulness Module 🔄 IN PROGRESS
 
 **Goal:** Build the full Mindfulness pillar with media playback, journaling, and the "I Am Clean" tracker.
 
 | Deliverable | Status |
 |---|---|
-| Mindfulness tab added to main navigation | ⬜ |
-| Meditation player — audio_players integration, background sounds, timer | ⬜ |
-| 20+ seed meditation sessions (audio content + metadata in Firestore) | ⬜ |
-| Meditation session history + streak tracking | ⬜ |
-| Sleep support — sleep stories, ambient sounds, sleep timer | ⬜ |
-| Mood journal — daily check-in, emotion wheel, gratitude prompts, free writing | ⬜ |
-| Mood history + pattern visualization | ⬜ |
-| "I Am Clean" tracker — streak, milestones, SOS, health timeline, money saved | ⬜ |
-| "I Am Clean" — 10 addiction types, relapse reset flow | ⬜ |
-| Focus timer (Pomodoro) with focus music | ⬜ |
-| Stress SOS — quick 2–5 min relief sessions | ⬜ |
-| Mental Health Hub — self-assessments (anxiety, depression, stress) | ⬜ |
-| Mental Health Hub — CBT/DBT exercises (static content) | ⬜ |
-| Mental Health Hub — crisis resources + India helplines | ⬜ |
-| Offline download for meditation sessions | ⬜ |
+| Mindfulness tab added to main navigation | ✅ |
+| Meditation player — audio_players integration, background sounds, timer | ✅ |
+| 20+ seed meditation sessions (audio content + metadata in Firestore) | ✅ *(22 seeded statically; Firestore migration deferred until audio assets land)* |
+| Meditation session history + streak tracking | ✅ |
+| Sleep support — sleep stories, ambient sounds, sleep timer | ✅ |
+| Mood journal — daily check-in, emotion wheel, gratitude prompts, free writing | ✅ |
+| Mood history + pattern visualization | ✅ |
+| "I Am Clean" tracker — streak, milestones, SOS, health timeline, money saved | ✅ |
+| "I Am Clean" — 10 addiction types, relapse reset flow | ✅ |
+| Focus timer (Pomodoro) with focus music | ✅ *(Pomodoro done; focus music deferred — needs licensed audio)* |
+| Stress SOS — quick 2–5 min relief sessions | ✅ |
+| Mental Health Hub — self-assessments (anxiety, depression, stress) | ✅ *(GAD-7, PHQ-9, PSS-10 — validated instruments)* |
+| Mental Health Hub — CBT/DBT exercises (static content) | ✅ |
+| Mental Health Hub — crisis resources + India helplines | ✅ *(8 verified India helplines + 112 emergency)* |
+| Offline download for meditation sessions | ⬜ *(deferred — needs licensed audio CDN)* |
+
+**PRD deviations / deferred:**
+- Meditation audio is currently metadata-only; the player integrates `audioplayers` with a fallback timer so the UX is complete, but actual audio assets are pending licensing/CDN setup.
+- Phase 3 leftovers (Dosha → Fitness/Nutrition wiring) remain; Nutrition wiring is blocked until Phase 5.
 
 ---
 

@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:beyou/app.dart';
 import 'package:beyou/core/di/injection.dart';
 import 'package:beyou/firebase_options.dart';
@@ -21,6 +22,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // Initialize Hive for on-device storage (Mindfulness mood/streak/focus history)
+  await Hive.initFlutter();
 
   // On web, persist auth session in IndexedDB so users stay signed in across refreshes
   if (kIsWeb) {

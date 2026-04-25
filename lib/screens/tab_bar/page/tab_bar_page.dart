@@ -1,6 +1,7 @@
 import 'package:beyou/core/constants/color_constants.dart';
 import 'package:beyou/features/ayurveda/pages/ayurveda_page.dart';
 import 'package:beyou/features/fitness/pages/fitness_page.dart';
+import 'package:beyou/features/mindfulness/pages/mindfulness_page.dart';
 import 'package:beyou/screens/home/page/home_page.dart';
 import 'package:beyou/screens/settings/settings_screen.dart';
 import 'package:beyou/screens/tab_bar/bloc/tab_bar_bloc.dart';
@@ -67,6 +68,11 @@ class TabBarPage extends StatelessWidget {
             label: 'Ayurveda',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.self_improvement_outlined),
+            activeIcon: Icon(Icons.self_improvement),
+            label: 'Mindful',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.settings_outlined),
             activeIcon: Icon(Icons.settings),
             label: 'Settings',
@@ -84,6 +90,7 @@ class TabBarPage extends StatelessWidget {
       HomePage(),
       const FitnessPage(),
       const AyurvedaPage(),
+      const MindfulnessPage(),
       SettingsScreen(),
     ];
     return children[index];

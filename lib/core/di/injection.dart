@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:beyou/features/ayurveda/data/ayurveda_repository.dart';
 import 'package:beyou/features/dosha/data/dosha_repository.dart';
 import 'package:beyou/features/fitness/data/fitness_repository.dart';
+import 'package:beyou/features/mindfulness/data/mindfulness_repository.dart';
 
 /// Service locator for dependency injection
 final getIt = GetIt.instance;
@@ -12,4 +13,5 @@ Future<void> setupDependencies() async {
   getIt.registerLazySingleton(() => DoshaRepository());
   getIt.registerLazySingleton(() => FitnessRepository());
   getIt.registerLazySingleton(() => AyurvedaRepository());
+  getIt.registerLazySingleton(() => MindfulnessRepository());
 }

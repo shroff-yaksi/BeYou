@@ -82,6 +82,9 @@ dependencies:
   permission_handler: ^12.0.1
   timezone: ^0.11.0
 
+  # Audio (Mindfulness)
+  audioplayers: ^6.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
